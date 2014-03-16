@@ -1,0 +1,20 @@
+﻿
+
+WORKITEMLIST
+------------
+
+-Quête: 
+	*voir la quête de la recherche de zone
+
+-Ajouter une troisième simulation
+-Joueur:
+	* commande un personnage ou une armée
+	* autre joueur : intelleigence artificielle (djikstra)
+
+-Carte du maraudeur ( Marauder's Adventure ) :
+	* Equipe : 
+		 Ordre du phénix : trouver le diadème de serdaigle, tuer nagini, tuer voldemort
+		 Mangemort (+ voldy) : tuer tous les ordre du phénix
+	* Utilisation de la carte du maraudeur
+	* Passage secret, entrer dans la chambre des secrets
+	* Quartier général (restore les points de vie) : tour des gryffondor -- foret interdite
