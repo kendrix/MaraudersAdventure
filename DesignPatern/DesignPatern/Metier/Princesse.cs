@@ -26,6 +26,10 @@ namespace MaraudersAdventure
             ComportementEmettreUnSon = new ComportementParlerPrincesse();
             seDeplacer = new SeDeplacerApiedAvecHache();
             Notify(string.Format("La princesse {0} à été créée", unNom));
+
+            PointsDeVie = 95;
+            PointsDAttaque = 5;
+            Vitesse = 1;
         }
     }
 }

@@ -1,0 +1,21 @@
+﻿<Window x:Class="MaraudersAdventure.PopUpPersonnage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PopUpPersonnage" Height="313.781" Width="356.184" Loaded="Window_Loaded">
+    <Grid>
+        <GroupBox Header="Type" HorizontalAlignment="Left" Height="193" Margin="10,45,0,0" VerticalAlignment="Top" Width="319"/>
+
+        <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="254,252,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="174,252,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Label Content="Nom du personnage :" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="23" Margin="162,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbType" HorizontalAlignment="Left" Margin="43,77,0,0" VerticalAlignment="Top" Width="256" SelectionChanged="cbType_SelectionChanged"/>
+        <Label Content="Point de vie :" HorizontalAlignment="Left" Margin="43,119,0,0" VerticalAlignment="Top"/>
+        <Label Content="Point d'attaque :" HorizontalAlignment="Left" Margin="43,158,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="txtPtVie" Content="lable" HorizontalAlignment="Left" Margin="197,119,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="txtPtAtt" Content="Label" HorizontalAlignment="Left" Margin="197,158,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vitesse de déplacement :" HorizontalAlignment="Left" Margin="43,195,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="txtVitesse" Content="Label" HorizontalAlignment="Left" Margin="197,195,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

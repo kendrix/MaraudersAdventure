@@ -1,0 +1,39 @@
+﻿<Window x:Class="MaraudersAdventure.ConfigurationForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Configuration de la partie" Height="531.982" Width="800">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="245*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Type de map" HorizontalAlignment="Left" Height="43" Margin="25,18.837,0,0" VerticalAlignment="Top" Width="348" Grid.Row="1"/>
+
+        <RadioButton x:Name="radioStandard" Content="Standard" HorizontalAlignment="Left" Margin="47,38.837,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <RadioButton x:Name="radioMaraudeur" Content="Carte du Maraudeurs" HorizontalAlignment="Left" Margin="147,38.837,0,0" VerticalAlignment="Top" Grid.Row="1" IsChecked="True"/>
+        <RadioButton x:Name="RadioEtage" Content="Etage" HorizontalAlignment="Left" Margin="306,38.837,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Rectangle Fill="#FFBB3939" HorizontalAlignment="Left" Height="398" Margin="10,81.837,0,0" Stroke="Black" VerticalAlignment="Top" Width="380" Grid.Row="1"/>
+        <Button x:Name="btnAddQRouge" Content="+" HorizontalAlignment="Left" Margin="169,150.837,0,0" VerticalAlignment="Top" Width="26" Click="btnAddQRouge_Click" Grid.Row="1"/>
+        <ListBox x:Name="lbQueteRouge" HorizontalAlignment="Left" Height="282" Margin="25,182.837,0,0" VerticalAlignment="Top" Width="170" Grid.Row="1"/>
+        <ListBox x:Name="lbJoueurRouge" HorizontalAlignment="Left" Height="282" Margin="233,182.837,0,0" VerticalAlignment="Top" Width="140" Grid.Row="1" PreviewMouseDoubleClick="lbJoueurRouge_PreviewMouseDoubleClick" MouseDoubleClick="lbJoueurRouge_MouseDoubleClick"/>
+        <ComboBox x:Name="cbQueteRouge" HorizontalAlignment="Left" Margin="25,150.837,0,0" VerticalAlignment="Top" Width="139" Grid.Row="1"/>
+        <Label Content="Quêtes :" HorizontalAlignment="Left" Margin="25,119.837,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <ComboBox x:Name="cbJoueurRouge" HorizontalAlignment="Left" Margin="327,150.837,0,0" VerticalAlignment="Top" Width="46" SelectionChanged="ComboBox_SelectionChanged" Grid.Row="1"/>
+        <Label Content="Nombre de joueurs :" HorizontalAlignment="Left" Margin="233,124.837,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button Content="Lancer le jeu" HorizontalAlignment="Left" Margin="617,11.837,0,0" VerticalAlignment="Top" Width="153" Height="43" Grid.Row="1" Click="Button_Click"/>
+        <Label Content="Nom de votre équipe :" HorizontalAlignment="Left" Margin="25,93.837,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.396" Grid.Row="1"/>
+        <TextBox x:Name="nomEquipeRouge" HorizontalAlignment="Left" Height="23" Margin="200,96.837,0,0" TextWrapping="Wrap" Text="Equipe Rouge" VerticalAlignment="Top" Width="173" Grid.Row="1"/>
+        <Rectangle Fill="#FF337247" HorizontalAlignment="Left" Height="398" Margin="400,81.837,0,0" Stroke="Black" VerticalAlignment="Top" Width="380" Grid.Row="1"/>
+        <Button x:Name="btnAddQVerte" Content="+" HorizontalAlignment="Left" Margin="559,151.837,0,0" VerticalAlignment="Top" Width="26" Click="btnAddQVerte_Click" Grid.Row="1"/>
+        <ListBox x:Name="lbQueteVerte" HorizontalAlignment="Left" Height="282" Margin="415,183.837,0,0" VerticalAlignment="Top" Width="170" Grid.Row="1"/>
+        <ListBox x:Name="lbJoueurVerte" HorizontalAlignment="Left" Height="282" Margin="623,183.837,0,0" VerticalAlignment="Top" Width="140" Grid.Row="1" SelectionChanged="lbJoueurVerte_SelectionChanged" MouseDoubleClick="lbJoueurVerte_MouseDoubleClick"/>
+        <ComboBox x:Name="cbQueteVerte" HorizontalAlignment="Left" Margin="415,151.837,0,0" VerticalAlignment="Top" Width="139" Grid.Row="1"/>
+        <Label Content="Quêtes :" HorizontalAlignment="Left" Margin="415,120.837,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <ComboBox x:Name="cbJoueurVerte" HorizontalAlignment="Left" Margin="717,150.837,0,0" VerticalAlignment="Top" Width="46" SelectionChanged="cbJoueurVerte_SelectionChanged" Grid.Row="1"/>
+        <Label Content="Nombre de joueurs :" HorizontalAlignment="Left" Margin="623,125.837,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Nom de l'équipe  adverse :" HorizontalAlignment="Left" Margin="415,94.837,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.396" Grid.Row="1"/>
+        <TextBox x:Name="nomEquipeVerte" HorizontalAlignment="Left" Height="23" Margin="590,97.837,0,0" TextWrapping="Wrap" Text="Equipe Verte" VerticalAlignment="Top" Width="173" Grid.Row="1"/>
+
+    </Grid>
+</Window>

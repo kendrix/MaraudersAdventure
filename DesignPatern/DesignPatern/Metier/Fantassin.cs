@@ -27,6 +27,11 @@ namespace MaraudersAdventure
             ComportementCombat = new ComportementApiedAvecHache();
             seDeplacer = new SeDeplacerApiedAvecHache();
             ComportementEmettreUnSon = new ComportementCrier();
+
+
+            PointsDeVie = 110;
+            PointsDAttaque = 7;
+            Vitesse = 1;
         }
 
         public override string Afficher()

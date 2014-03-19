@@ -1,0 +1,15 @@
+﻿<Window x:Class="MaraudersAdventure.MapGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Marauder's Adventure" Height="600" Width="800">
+    <StackPanel>
+
+        <Button Content="Lancer la partie" Click="Button_Click" />
+
+        <UniformGrid  x:Name="ChessBoard" Width="400"  Height="400">
+        </UniformGrid>
+
+        <ListBox x:Name="Visuel"  Height="127" Margin="10,10,10,10"/>
+
+    </StackPanel>
+</Window>

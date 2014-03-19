@@ -41,6 +41,9 @@ namespace MaraudersAdventure
 
         public TypePersonnage type { get; set; }
         public int PointsDeVie { get; set; }
+        public int PointsDAttaque { get; set; }
+        public int Vitesse { get; set; }
+
         private Position position;
 
         public Position Position
@@ -68,7 +71,6 @@ namespace MaraudersAdventure
             ComportementCombat = null;
             ComportementEmettreUnSon = null;
             type = tp;
-
             Historique = new List<Position>(); 
         }
 

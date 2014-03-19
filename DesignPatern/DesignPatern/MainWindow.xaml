@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Marauder's Adventure" Height="350" Width="525">
     <Grid>
-        <Button Content="Simulation 1" HorizontalAlignment="Left" Margin="197,81,0,0" VerticalAlignment="Top" Width="121" Click="Button_Click"/>
-        <Button Content="Simulation 2" HorizontalAlignment="Left" Margin="197,144,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.547,-1.811" Click="Button_Click_1"/>
-        <Button Content="Simulation 3" HorizontalAlignment="Left" Margin="197,207,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.547,-1.811" Click="Button_Click_2"/>
+        <Button Content="Nouvelle Partie" HorizontalAlignment="Left" Margin="101,142,0,0" VerticalAlignment="Top" Width="121" Click="Button_Click"/>
+        <Button Content="Score" HorizontalAlignment="Left" Margin="101,205,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.547,-1.811" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

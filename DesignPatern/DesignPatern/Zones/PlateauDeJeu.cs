@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace MaraudersAdventure
 {
+    public enum MapType
+    {
+        standard,
+        etage,
+        maraudeurs
+    };
+
     public class PlateauDeJeu
     {
         public List<ZoneAbstraite> zones;

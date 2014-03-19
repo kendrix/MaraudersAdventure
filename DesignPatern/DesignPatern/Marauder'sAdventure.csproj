@@ -54,13 +54,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConfigurationForm.xaml.cs">
+      <DependentUpon>ConfigurationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationGame.cs" />
+    <Compile Include="Equipe.cs" />
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapGame.xaml.cs">
+      <DependentUpon>MapGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="MapZone.cs" />
     <Compile Include="Metier\Déplacement\DeplacementAcheval.cs" />
     <Compile Include="Metier\Déplacement\DeplacementApiedAvecHache.cs" />
     <Compile Include="Metier\Déplacement\DeplacementNormale.cs" />
+    <Compile Include="PopUpPersonnage.xaml.cs">
+      <DependentUpon>PopUpPersonnage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Quetes\Quete.cs" />
     <Compile Include="Metier\Comportement\ComportementAcheval.cs" />
     <Compile Include="Metier\Comportement\ComportementApiedAvecHache.cs" />
@@ -81,15 +92,19 @@
     <Compile Include="Observer\SujetAbstrait.cs" />
     <Compile Include="Zones\PlateauDeJeu.cs" />
     <Compile Include="SimulationJeu.cs" />
-    <Compile Include="Zones\Plateau de Jeu\Zone.cs" />
+    <Compile Include="Zones\Standard\Zone.cs" />
     <Compile Include="Zones\Position.cs" />
-    <Compile Include="Zones\ZoneAbstraite.cs" />
+    <Compile Include="Zones\MapAbstraite\ZoneAbstraite.cs" />
+    <Page Include="ConfigurationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Zones\Plateau de Jeu\Acces.cs" />
-    <Compile Include="Zones\AccesAbstrait.cs" />
+    <Compile Include="Zones\Standard\Acces.cs" />
+    <Compile Include="Zones\MapAbstraite\AccesAbstrait.cs" />
     <Compile Include="Zones\Labyrinthe\Adjacent.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -99,16 +114,23 @@
     <Compile Include="Zones\Labyrinthe\Case.cs" />
     <Compile Include="Metier\Chevalier.cs" />
     <Compile Include="Observer\eMode.cs" />
-    <Compile Include="Zones\EnvironnementDeJeu.cs" />
     <Compile Include="Zones\Labyrinthe\FabriqueLabyrinthe.cs" />
-    <Compile Include="Zones\Plateau de Jeu\FabriquePlateauDeJeu.cs" />
-    <Compile Include="Zones\FabriquePlateauDeJeuAbstraite.cs" />
+    <Compile Include="Zones\Standard\FabriquePlateauDeJeu.cs" />
+    <Compile Include="Zones\MapAbstraite\FabriquePlateauDeJeuAbstraite.cs" />
     <Compile Include="Metier\Fantassin.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MapGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopUpPersonnage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +196,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="WorkItemList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Zones\Etage\" />
+    <Folder Include="Zones\Maraudeurs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

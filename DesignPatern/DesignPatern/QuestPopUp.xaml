@@ -1,0 +1,14 @@
+﻿<Window x:Class="MaraudersAdventure.QuestPopUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="QuestPopUp" Height="152.65" Width="383.746">
+    <Grid Loaded="Grid_Loaded">
+        <Label Content="Type :" HorizontalAlignment="Left" Margin="34,19,0,0" VerticalAlignment="Top"/>
+        <Label Content="TypeQuete" HorizontalAlignment="Left" Margin="111,19,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblExtra" Content="Label" HorizontalAlignment="Left" Margin="34,50,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtExtra" HorizontalAlignment="Left" Height="23" Margin="111,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Valider" HorizontalAlignment="Left" Margin="291,91,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Annuler" HorizontalAlignment="Left" Margin="196,91,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

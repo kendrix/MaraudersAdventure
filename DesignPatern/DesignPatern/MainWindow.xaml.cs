@@ -15,8 +15,11 @@ namespace MaraudersAdventure
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Map m = new Map(Simulation1(), 1);
-            m.ShowDialog();
+            //Map m = new Map(Simulation1(), 1);
+            //m.ShowDialog();
+
+            ConfigurationForm conf = new ConfigurationForm();
+            conf.ShowDialog();
         }
 
         private SimulationJeu Simulation1()
