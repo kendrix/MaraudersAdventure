@@ -128,7 +128,8 @@ namespace MaraudersAdventure
 
             ConfigurationGame conf = new ConfigurationGame(nomEquipeRouge.Text, nomEquipeVerte.Text,
                     liste, liste2, liste3, liste4, type);
-            MapGame game = new MapGame(conf);
+            //MapGame game = new MapGame(conf);
+            MapTest game = new MapTest(conf);
             game.ShowDialog();
         }
 

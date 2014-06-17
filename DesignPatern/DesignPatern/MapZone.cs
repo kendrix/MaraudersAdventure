@@ -2,7 +2,7 @@
 
 namespace MaraudersAdventure
 {
-    class MapZone : Image
+    public class MapZone : Image
     {
         public ZoneAbstraite zone;
 

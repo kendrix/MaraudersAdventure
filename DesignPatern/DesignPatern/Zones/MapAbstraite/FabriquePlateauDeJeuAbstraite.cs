@@ -13,7 +13,7 @@ namespace MaraudersAdventure
      
         public virtual PlateauDeJeu CreerPlateau()
         {
-            return new PlateauDeJeu();
+            return new PlateauDeJeu(MapType.none);
         }
         public abstract ZoneAbstraite CreerZone(string nom, Position p, int i);
     }

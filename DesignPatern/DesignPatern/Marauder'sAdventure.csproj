@@ -65,10 +65,14 @@
     <Compile Include="MapGame.xaml.cs">
       <DependentUpon>MapGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapTest.xaml.cs">
+      <DependentUpon>MapTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MapZone.cs" />
     <Compile Include="Metier\Déplacement\DeplacementAcheval.cs" />
     <Compile Include="Metier\Déplacement\DeplacementApiedAvecHache.cs" />
     <Compile Include="Metier\Déplacement\DeplacementNormale.cs" />
+    <Compile Include="Parametres.cs" />
     <Compile Include="PopUpPersonnage.xaml.cs">
       <DependentUpon>PopUpPersonnage.xaml</DependentUpon>
     </Compile>
@@ -90,6 +94,10 @@
     <Compile Include="Observer\Organisation.cs" />
     <Compile Include="Observer\SujetConcret.cs" />
     <Compile Include="Observer\SujetAbstrait.cs" />
+    <Compile Include="Zones\Etage\AdjacentEtage.cs" />
+    <Compile Include="Zones\Etage\CaseEtage.cs" />
+    <Compile Include="Zones\MapDesign.cs" />
+    <Compile Include="Zones\Etage\FabriqueEtage.cs" />
     <Compile Include="Zones\PlateauDeJeu.cs" />
     <Compile Include="SimulationJeu.cs" />
     <Compile Include="Zones\Standard\Zone.cs" />
@@ -127,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MapGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MapTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,7 +210,6 @@
     <Resource Include="WorkItemList.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Zones\Etage\" />
     <Folder Include="Zones\Maraudeurs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

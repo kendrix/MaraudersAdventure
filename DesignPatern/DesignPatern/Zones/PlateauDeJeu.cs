@@ -11,18 +11,22 @@ namespace MaraudersAdventure
     {
         standard,
         etage,
-        maraudeurs
+        maraudeurs,
+        none
     };
 
     public class PlateauDeJeu
     {
         public List<ZoneAbstraite> zones;
         public List<AccesAbstrait> acces;
+        public MapType mytype;
 
-        public PlateauDeJeu()
+
+        public PlateauDeJeu(MapType ty)
         {
             zones = new List<ZoneAbstraite>();
             acces = new List<AccesAbstrait>();
+            mytype = ty;
         }
 
         public void AjoutAcces(AccesAbstrait a)

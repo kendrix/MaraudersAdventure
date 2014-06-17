@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace MaraudersAdventure
 {
     /// <summary>
-    /// Interaction logic for MapGame.xaml
+    /// Interaction logic for MapTest.xaml
     /// </summary>
-    public partial class MapGame : Window
+    public partial class MapTest : Window
     {
-        ConfigurationGame conf;
+         ConfigurationGame conf;
         MapDesign design;
 
-        public MapGame(ConfigurationGame _conf)
+        public MapTest(ConfigurationGame _conf)
         {
             InitializeComponent();
             conf = _conf;
@@ -49,25 +49,41 @@ namespace MaraudersAdventure
         public void UpdateMapLayout()
         {
             ChessBoard.Children.Clear();
-            for (int x = 0; x < 12; ++x)
+            for (int x = 0; x < Parametres.nbColonne; ++x)
             {
-                for (int y = 0; y < 12; ++y)
-                {
-                    
+                for (int y = 0; y < Parametres.nbLigne; ++y)
+                {                    
                     ZoneAbstraite zone = conf.Plateau.GetZone(new Position(x, y));
-                    List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
-
-                    ChessBoard.Children.Add(design.GetCaseImage(zone, conf.EquipeRouge.Joueurs, conf.EquipeVerte.Joueurs));
-                    
+                    if (zone != null)
+                    {
+                        List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
+                        ChessBoard.Children.Add(design.GetCaseImage(zone, conf.EquipeRouge.Joueurs, conf.EquipeVerte.Joueurs));
+                    }
                 }
             }
             this.Refresh();
             UpdateLayout();
         }
 
+        List<Expander> listePerso = new List<Expander>();
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            foreach (Personnage p in conf.EquipeRouge.Joueurs)
+            {
+                // Add new expander, stack panel and text block.
+                var newExpander = new Expander { Name = p.Afficher(), Header = p.Afficher() };
+                var newstackPanel = new StackPanel { Name = p.Afficher() };
+                var newtextBlock = new TextBlock { Text = "777" };
 
+                // Add above items as children.     
+                newstackPanel.Children.Add(newtextBlock);
+                newExpander.Content = newstackPanel;
+                myStack.Children.Add(newExpander);
+
+
+                //listePerso.Add(new Expander());
+            }
         }
     }
 }

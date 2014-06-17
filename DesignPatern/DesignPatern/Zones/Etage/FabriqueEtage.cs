@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace MaraudersAdventure
 {
-    class FabriquePlateauDeJeu : FabriquePlateauDeJeuAbstraite
+    class FabriqueEtage : FabriquePlateauDeJeuAbstraite
     {
         public override AccesAbstrait CreerAcces(ZoneAbstraite z1, ZoneAbstraite z2)
         {
-            return new Acces((Zone)z1, (Zone)z2);
+            return new AdjacentEtage((CaseEtage)z1, (CaseEtage)z2);
         }
         public override PlateauDeJeu CreerPlateau()
         {
-            PlateauDeJeu plateau = new PlateauDeJeu(MapType.maraudeurs);
+            PlateauDeJeu plateau = new PlateauDeJeu(MapType.etage);
             //creer adjacent et case
-            Zone actuelle = null;
-            Zone ancienne = null;
-            Acces lien = null;
+            CaseEtage actuelle = null;
+            CaseEtage ancienne = null;
+            AdjacentEtage lien = null;
             Position p = null;
             int h = 0;
             int j = 0;
@@ -31,11 +31,12 @@ namespace MaraudersAdventure
                     j++;
                 }
                 p = new Position(h, j);
-                actuelle = (Zone)CreerZone("Zone " + i, p, i);
+                actuelle = (CaseEtage)CreerZone("Zone " + i, p, i);
+
                 plateau.AjoutZone((ZoneAbstraite)actuelle);
                 if (ancienne != null)
                 {
-                    lien = (Acces)CreerAcces((ZoneAbstraite)actuelle, (ZoneAbstraite)ancienne);
+                    lien = (AdjacentEtage)CreerAcces((ZoneAbstraite)actuelle, (ZoneAbstraite)ancienne);
                     plateau.AjoutAcces((AccesAbstrait)lien);
                 }
 
@@ -47,7 +48,8 @@ namespace MaraudersAdventure
 
         public override ZoneAbstraite CreerZone(string nom, Position p, int i)
         {
-            return new Zone(nom, p, i);
+            return new CaseEtage(nom, p, i);
         }
+
     }
 }

@@ -15,7 +15,7 @@ namespace MaraudersAdventure
         }
         public override PlateauDeJeu CreerPlateau()
         {
-            PlateauDeJeu plateau = new PlateauDeJeu();
+            PlateauDeJeu plateau = new PlateauDeJeu(MapType.standard);
             //creer adjacent et case
             Case actuelle = null;
             Case ancienne = null;
@@ -23,9 +23,9 @@ namespace MaraudersAdventure
             Position p = null;
             int h = 0;
             int j = 0;
-            for (int i = 0; i < 64; i++)
+            for (int i = 0; i < Parametres.nbCases; i++)
             {
-                if (h >= 8)
+                if (h >= Parametres.nbColonne)
                 {
                     h = 0;
                     j++;
