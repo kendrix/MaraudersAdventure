@@ -12,18 +12,31 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MaraudersAdventure
 {
+    public static class ExtensionMethods
+    {
+
+        private static Action EmptyDelegate = delegate() { };
+
+        public static void Refresh(this UIElement uiElement)
+        {
+            uiElement.Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
+        }
+    }
     /// <summary>
     /// Interaction logic for MapTest.xaml
     /// </summary>
-    public partial class MapTest : Window
+    public partial class MapFinale : Window
     {
-         ConfigurationGame conf;
+        ConfigurationGame conf;
         MapDesign design;
+        GameSimulation maSimulation;
 
-        public MapTest(ConfigurationGame _conf)
+
+        public MapFinale(ConfigurationGame _conf)
         {
             InitializeComponent();
             conf = _conf;
@@ -39,33 +52,12 @@ namespace MaraudersAdventure
                     design = new MapDesign(Properties.Resources.inconnu, Properties.Resources.herbe, Properties.Resources.arbre, Properties.Resources.objet);
                     break;
             }
+
+            maSimulation = new GameSimulation(conf);
+
             UpdateMapLayout();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        public void UpdateMapLayout()
-        {
-            ChessBoard.Children.Clear();
-            for (int x = 0; x < Parametres.nbColonne; ++x)
-            {
-                for (int y = 0; y < Parametres.nbLigne; ++y)
-                {                    
-                    ZoneAbstraite zone = conf.Plateau.GetZone(new Position(x, y));
-                    if (zone != null)
-                    {
-                        List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
-                        ChessBoard.Children.Add(design.GetCaseImage(zone, conf.EquipeRouge.Joueurs, conf.EquipeVerte.Joueurs));
-                    }
-                }
-            }
-            this.Refresh();
-            UpdateLayout();
-        }
-
-        List<Expander> listePerso = new List<Expander>();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -85,5 +77,34 @@ namespace MaraudersAdventure
                 //listePerso.Add(new Expander());
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            maSimulation.StartGame();
+        }
+
+        public void UpdateMapLayout()
+        {
+            List<Personnage> mm = conf.EquipeRouge.Joueurs;
+            mm.AddRange(conf.EquipeVerte.Joueurs);
+            ChessBoard.Children.Clear();
+            for (int x = 0; x < Parametres.nbColonne; ++x)
+            {
+                for (int y = 0; y < Parametres.nbLigne; ++y)
+                {
+                    ZoneAbstraite zone = conf.Plateau.GetZone(new Position(x, y));
+                    if (zone != null)
+                    {
+                        List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
+                        ChessBoard.Children.Add(design.GetCaseImage(zone, mm));
+                    }
+                }
+            }
+            this.Refresh();
+            UpdateLayout();
+        }
+
+        List<Expander> listePerso = new List<Expander>();
+
     }
 }

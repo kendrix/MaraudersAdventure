@@ -14,12 +14,15 @@ namespace MaraudersAdventure
             this.Nom = nom;
         }
 
-        public override bool Utilisation(Personnage p)
+        public override bool Utilisation(Personnage p, Equipe e)
         {
-            if (p.Objectif.Type == TypeQuete.TrouverObjetChacun || p.Objectif.Type == TypeQuete.TrouverObjetUnique)
+            foreach (Quete qq in e.Quetes)
             {
-                QueteObjet q = (QueteObjet)p.Objectif;
-                return q.FinirQuete(p);
+                if (qq.Type == TypeQuete.TrouverObjetChacun || qq.Type == TypeQuete.TrouverObjetUnique)
+                {
+                    QueteObjet q = (QueteObjet)qq;
+                    return q.FinirQuete(p);
+                }
             }
             return false;
         }

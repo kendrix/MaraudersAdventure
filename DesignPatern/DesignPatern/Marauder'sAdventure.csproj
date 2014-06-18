@@ -59,14 +59,9 @@
     </Compile>
     <Compile Include="ConfigurationGame.cs" />
     <Compile Include="Equipe.cs" />
-    <Compile Include="Map.xaml.cs">
-      <DependentUpon>Map.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MapGame.xaml.cs">
-      <DependentUpon>MapGame.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MapTest.xaml.cs">
-      <DependentUpon>MapTest.xaml</DependentUpon>
+    <Compile Include="GameSimulation.cs" />
+    <Compile Include="MapFinale.xaml.cs">
+      <DependentUpon>MapFinale.xaml</DependentUpon>
     </Compile>
     <Compile Include="MapZone.cs" />
     <Compile Include="Metier\Déplacement\DeplacementAcheval.cs" />
@@ -99,7 +94,6 @@
     <Compile Include="Zones\MapDesign.cs" />
     <Compile Include="Zones\Etage\FabriqueEtage.cs" />
     <Compile Include="Zones\PlateauDeJeu.cs" />
-    <Compile Include="SimulationJeu.cs" />
     <Compile Include="Zones\Standard\Zone.cs" />
     <Compile Include="Zones\Position.cs" />
     <Compile Include="Zones\MapAbstraite\ZoneAbstraite.cs" />
@@ -130,15 +124,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Map.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MapGame.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MapTest.xaml">
+    <Page Include="MapFinale.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

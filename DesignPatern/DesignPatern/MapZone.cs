@@ -9,7 +9,7 @@ namespace MaraudersAdventure
         public MapZone(ZoneAbstraite zone)
         {
             this.zone = zone;
-            this.ToolTip = zone.point.X +" - "+ zone.point.Y;
+            this.ToolTip =zone.point.X +" - "+ zone.point.Y;
         }
     }
 }

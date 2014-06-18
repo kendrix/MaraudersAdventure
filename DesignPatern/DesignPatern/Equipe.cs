@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaraudersAdventure
 {
-    class Equipe
+    public class Equipe
     {
         List<Quete> quetes;
         public List<Quete> Quetes
@@ -31,20 +31,15 @@ namespace MaraudersAdventure
 
         public Equipe (string _nom, List<Personnage> _listenom, List<string> _quetes)
         {
-            _nom = nom;
-            Personnage p;
-
+            nom = _nom;
+            quetes = new List<Quete>();
             foreach (string que in _quetes)
             {
-                //if (que.Equals(""))
-                //   Quete q = new QueteObjet();
+                if (que.Equals("Objet"))
+                   quetes.Add(new QueteObjet("dd", null, TypeQuete.TrouverObjetUnique));
+                else if (que.Equals("TrouverCase"))
+                   quetes.Add(new QueteZone("dd", null));
             }
-            /*
-            foreach (string joueur in _listenom)
-            {
-                p = new Chevalier(joueur);
-                joueurs.Add(p);
-            }*/
             joueurs = _listenom;
         }
     }

@@ -20,8 +20,8 @@ namespace MaraudersAdventure
     class Fantassin : Personnage
     {
 
-        public Fantassin(string unNom)
-            : base(unNom, TypePersonnage.Fantassin)
+        public Fantassin(string unNom, TypeEquipe e)
+            : base(unNom, TypePersonnage.Fantassin, e)
         {
             Image = Properties.Resources.fantassin;
             ComportementCombat = new ComportementApiedAvecHache();

@@ -42,8 +42,8 @@ namespace MaraudersAdventure
                 cbJoueurRouge.Items.Add(i + 1);
                 cbJoueurVerte.Items.Add(i + 1);
 
-                RTeam.Add(new Chevalier(redTeam[i]));
-                GTeam.Add(new Chevalier(greenTeam[i]));
+                RTeam.Add(new Chevalier(redTeam[i], TypeEquipe.Rouge));
+                GTeam.Add(new Chevalier(greenTeam[i], TypeEquipe.Verte));
             }
 
             cbJoueurRouge.SelectedIndex = 0;
@@ -104,12 +104,12 @@ namespace MaraudersAdventure
             if (string.IsNullOrEmpty(nomEquipeVerte.Text) || string.IsNullOrEmpty(nomEquipeRouge.Text))
                 return;
             List<Personnage> liste = new List<Personnage>();
-            for(int i =0; i <cbJoueurRouge.SelectedIndex-1;i++)
+            for(int i =0; i <cbJoueurRouge.SelectedIndex + 1;i++)
                 liste.Add(RTeam[i]);
 
             List<Personnage> liste2 = new List<Personnage>();
-            for (int i = 0; i < cbJoueurVerte.SelectedIndex - 1; i++)
-                liste.Add(GTeam[i]);
+            for (int i = 0; i < cbJoueurVerte.SelectedIndex + 1; i++)
+                liste2.Add(GTeam[i]);
 
             List<string> liste3 = new List<string>();
             foreach (string i in lbQueteRouge.Items)
@@ -129,7 +129,7 @@ namespace MaraudersAdventure
             ConfigurationGame conf = new ConfigurationGame(nomEquipeRouge.Text, nomEquipeVerte.Text,
                     liste, liste2, liste3, liste4, type);
             //MapGame game = new MapGame(conf);
-            MapTest game = new MapTest(conf);
+            MapFinale game = new MapFinale(conf);
             game.ShowDialog();
         }
 

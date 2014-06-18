@@ -50,8 +50,8 @@ namespace MaraudersAdventure
                 fini = true;
                 return true;
             }
-            else
-                return false;
+            
+            return false;
         }
     }
 

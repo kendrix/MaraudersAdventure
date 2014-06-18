@@ -22,7 +22,7 @@ namespace MaraudersAdventure
             conf.ShowDialog();
         }
 
-        private SimulationJeu Simulation1()
+/*        private SimulationJeu Simulation1()
         {
             SimulationJeu maSimulation = new SimulationJeu();
             FabriquePlateauDeJeu f = new FabriquePlateauDeJeu();
@@ -68,13 +68,13 @@ namespace MaraudersAdventure
             return maSimulation;
 
         }
-
+        */
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Map m = new Map(Simulation2(), 2);
-            m.ShowDialog();
+            //Map m = new Map(Simulation2(), 2);
+            //m.ShowDialog();
         }
-
+/*
         private SimulationJeu Simulation2()
         {
             SimulationJeu maSimulation = new SimulationJeu();
@@ -120,14 +120,14 @@ namespace MaraudersAdventure
             return maSimulation;
 
         }
-
+*/
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Map m = new Map(Simulation3(), 3);
-            m.ShowDialog();
+            //Map m = new Map(Simulation3(), 3);
+            //m.ShowDialog();
         }
 
-
+        /*
         private SimulationJeu Simulation3()
         {
             SimulationJeu maSimulation = new SimulationJeu();
@@ -186,6 +186,6 @@ namespace MaraudersAdventure
             return maSimulation;
 
         }
-
+        */
     }
 }

@@ -34,7 +34,8 @@ namespace MaraudersAdventure
         public Personnage joueurActuel;
 
 
-        public ConfigurationGame(string nomR, string nomV, List<Personnage> joueursR, List<Personnage> joueursV, List<string> queteR, List<string> queteV, MapType map)
+        public ConfigurationGame(string nomR, string nomV, List<Personnage> joueursR, List<Personnage> joueursV, 
+            List<string> queteR, List<string> queteV, MapType map)
         {
             equipeRouge = new Equipe(nomR, joueursR, queteR);
             equipeVerte = new Equipe(nomV, joueursV, queteV);

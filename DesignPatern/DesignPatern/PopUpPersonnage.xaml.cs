@@ -20,6 +20,7 @@ namespace MaraudersAdventure
     public partial class PopUpPersonnage : Window
     {
         public Personnage p;
+        //TypeEquipe equipe;
 
         public PopUpPersonnage(Personnage _p)
         {
@@ -30,10 +31,10 @@ namespace MaraudersAdventure
      
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cbType.Items.Add(new Archer(p.Nom));
-            cbType.Items.Add(new Chevalier(p.Nom));
-            cbType.Items.Add(new Princesse(p.Nom));
-            cbType.Items.Add(new Fantassin(p.Nom));
+            cbType.Items.Add(new Archer(p.Nom, p.equipe));
+            cbType.Items.Add(new Chevalier(p.Nom, p.equipe));
+            cbType.Items.Add(new Princesse(p.Nom, p.equipe));
+            cbType.Items.Add(new Fantassin(p.Nom, p.equipe));
 
             if (p.type == TypePersonnage.Archer)
                 cbType.SelectedIndex = 0;

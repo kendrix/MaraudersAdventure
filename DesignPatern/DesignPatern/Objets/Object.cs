@@ -16,7 +16,7 @@ namespace MaraudersAdventure
         {
             monType = type;
         }
-        public abstract bool Utilisation(Personnage p);
+        public abstract bool Utilisation(Personnage p, Equipe e);
 
     }
 }

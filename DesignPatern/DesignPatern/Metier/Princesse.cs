@@ -19,8 +19,8 @@ namespace MaraudersAdventure
 {
     public class Princesse : Personnage
     {
-        public Princesse(string unNom) : 
-            base(unNom, TypePersonnage.Princesse)
+        public Princesse(string unNom, TypeEquipe e) : 
+            base(unNom, TypePersonnage.Princesse, e)
         {
             Image = Properties.Resources.princesse; 
             ComportementEmettreUnSon = new ComportementParlerPrincesse();

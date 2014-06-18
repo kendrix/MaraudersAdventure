@@ -24,22 +24,25 @@ namespace MaraudersAdventure.Zones.Etage
             objet = _objet;
         }
 
-        public MapZone GetCaseImage(ZoneAbstraite z, List<Personnage> liste, List<Personnage> liste2)
+        public MapZone GetCaseImage(ZoneAbstraite z, List<Personnage> liste)
         {
             if (z != null)
             {
                 MapZone map = new MapZone(z);
-
+                
                 bool quetezone = false;
 
-                BitmapSource bt;
-
+                BitmapSource bt = null;
+                
                 foreach (Personnage p in liste)
-                    if (z != null && p != null && p.Position.X == z.point.X && p.Position.Y == z.point.Y)
+                {
+                    if (z != null && p != null && p.Position != null && p.Position.X == z.point.X
+                        && p.Position.Y == z.point.Y)
                     {
                         bt = ToWpfBitmap(p.Image);
+                        map.ToolTip += " " + p.Nom;
                     }
-                    else if (p.Objectif.Type == TypeQuete.TrouverCase)
+                    /*else if (p.Objectif.Type == TypeQuete.TrouverCase)
                     {
                         QueteZone qz = (QueteZone)p.Objectif;
                         if (qz != null
@@ -49,16 +52,19 @@ namespace MaraudersAdventure.Zones.Etage
                         {
                             quetezone = true;
                         }
-                    }
-                if (quetezone)
-                    bt = ToWpfBitmap(inconnu);
-                else if (z.objets != null && z.objets.Count > 0)
-                    bt = ToWpfBitmap(objet);
-                else if (z.Walkable)
-                    bt = ToWpfBitmap(standard);
-                else
-                    bt = ToWpfBitmap(obstacle);
-
+                    }*/
+                }
+                if (bt == null)
+                {
+                    if (quetezone)
+                        bt = ToWpfBitmap(inconnu);
+                    else if (z.objets != null && z.objets.Count > 0)
+                        bt = ToWpfBitmap(objet);
+                    else if (z.Walkable)
+                        bt = ToWpfBitmap(standard);
+                    else
+                        bt = ToWpfBitmap(obstacle);
+                }
                 map.Source = bt;
                 return map;
             }

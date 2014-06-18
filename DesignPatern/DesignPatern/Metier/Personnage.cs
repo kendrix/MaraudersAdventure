@@ -32,6 +32,11 @@ namespace MaraudersAdventure
         Mage,
         Fantassin
     }
+    public enum TypeEquipe
+    {
+        Rouge,
+        Verte
+    };
     public abstract class Personnage  : SujetAbstrait
     {
         public string Nom { get; set; }
@@ -43,7 +48,7 @@ namespace MaraudersAdventure
         public int PointsDeVie { get; set; }
         public int PointsDAttaque { get; set; }
         public int Vitesse { get; set; }
-
+        public TypeEquipe equipe;
         private Position position;
 
         public Position Position
@@ -52,26 +57,29 @@ namespace MaraudersAdventure
             set 
             {
                 position = value;
-                Historique.Add(position);
-                Objectif.FinirQuete(this);
+                Historique.Add(position);/*
+                if( Objectif != null)
+                    Objectif.FinirQuete(this);*/
             }
         } 
       
         public Etat etat { get; set; }
-        public Quete Objectif { get; set; }
+        //public Quete Objectif { get; set; }
         public List<Objet> Objets = new List<Objet>();
         public Bitmap Image;
 
         public List<Position> Historique;
 
         //-----------------------------------------------------------------------------
-        protected Personnage(string sonNom, TypePersonnage tp)
+        protected Personnage(string sonNom, TypePersonnage tp, TypeEquipe eq)
         {
             Nom = sonNom;
             ComportementCombat = null;
             ComportementEmettreUnSon = null;
             type = tp;
-            Historique = new List<Position>(); 
+            Historique = new List<Position>();
+            Image = Properties.Resources.archer;
+            equipe = eq;
         }
 
         //-----------------------------------------------------------------------------
@@ -81,10 +89,12 @@ namespace MaraudersAdventure
         }
 
         //-----------------------------------------------------------------------------
-        public string SeDeplacer(Position p)
+        public string SeDeplacer()
         {
             if (seDeplacer != null)
             {
+                Position p = new Position(1,1);
+                //TODO: mettre une fonction avec dijkstra (Valérie)
                 return seDeplacer.SeDeplacer(this, p);
             }
             return "Je suis trop fatigué pour me déplacer";
@@ -115,7 +125,7 @@ namespace MaraudersAdventure
                 int cpt = 0;
                 foreach (Objet o in z.objets)
                 {
-                    if (o.monType == monTypeObjet.ObjetDeQuete)
+                    /*if (o.monType == monTypeObjet.ObjetDeQuete)
                     {
                         ObjetQuete obj = (ObjetQuete)o;
                         QueteObjet quete = (QueteObjet)Objectif;
@@ -132,7 +142,7 @@ namespace MaraudersAdventure
                         }
                     }
                     else
-                    {
+                    {*/
                         Objets.Add(o);
 
                         if (cpt == 0)
@@ -143,7 +153,7 @@ namespace MaraudersAdventure
                         z.objets = null;
                     }
                     cpt++;
-                }
+                //}
 
             }
 

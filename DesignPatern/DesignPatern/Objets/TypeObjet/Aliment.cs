@@ -16,7 +16,7 @@ namespace MaraudersAdventure
             plusvie = val;
             Nom = nom;
         }
-        public override bool Utilisation(Personnage p)
+        public override bool Utilisation(Personnage p, Equipe e)
         {
             p.PointsDeVie = p.PointsDeVie + plusvie;
             return true;
