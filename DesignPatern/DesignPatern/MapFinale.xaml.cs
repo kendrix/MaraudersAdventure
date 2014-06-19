@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -95,7 +96,7 @@ namespace MaraudersAdventure
                     ZoneAbstraite zone = conf.Plateau.GetZone(new Position(x, y));
                     if (zone != null)
                     {
-                        List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
+                        //List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
                         ChessBoard.Children.Add(design.GetCaseImage(zone, mm));
                     }
                 }
@@ -127,6 +128,7 @@ namespace MaraudersAdventure
                         maSimulation.etatPartie = true;
                         break;
                     }
+                    Thread.Sleep(2000);
                     UpdateMapLayout();
                 }
                 cptTours++;

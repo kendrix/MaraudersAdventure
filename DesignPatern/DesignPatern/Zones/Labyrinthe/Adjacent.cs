@@ -17,12 +17,22 @@ namespace MaraudersAdventure
 
         public override bool AreNeighbour(Position z)
         {
-            if (z == null)
+           /* if (z == null)
                     return false;
                 if ((this.z1.point.X == z.X && this.z1.point.Y == z.Y)
                     && (this.z2.point.X == z.X && this.z2.point.Y == z.Y))
                     return true;
+                return false;*/
+            if (z == null)
                 return false;
+
+            /* if ((this.z1.point.X == z.X && this.z1.point.Y == z.Y)
+                 && (this.z2.point.X == z.X && this.z2.point.Y == z.Y) && CanBeUse)
+                 return true;
+             */
+            if (((z.X == z1.point.X) && (z.Y == z1.point.Y) || (z.X == z2.point.X) && (z.Y == z2.point.Y)))
+                return true;
+            return false;
         }
     }
 }

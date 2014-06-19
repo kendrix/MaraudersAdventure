@@ -14,6 +14,7 @@
 */
 #endregion --------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -90,13 +91,16 @@ namespace MaraudersAdventure
         }
 
         //-----------------------------------------------------------------------------
-        public string SeDeplacer()
+        public string SeDeplacer(PlateauDeJeu plateau)
         {
             if (seDeplacer != null)
             {
-                Position p = new Position(1,1);
+                //Position p = new Position(1,1);
+                List<ZoneAbstraite> voisins = plateau.GetNeighbourZones(this.position);
+                Random rdm = new Random(DateTime.Now.Millisecond);
+                int i = rdm.Next(0, voisins.Count - 1);
                 //TODO: mettre une fonction avec dijkstra (Valérie)
-                return seDeplacer.SeDeplacer(this, p);
+                return seDeplacer.SeDeplacer(this, voisins[i].point);
             }
             return "Je suis trop fatigué pour me déplacer";
         }

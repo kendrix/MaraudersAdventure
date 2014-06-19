@@ -94,7 +94,7 @@ namespace MaraudersAdventure
 
         public  void tour(Personnage p)
         {
-            p.SeDeplacer();
+            p.SeDeplacer(game.Plateau);
             Combatre();
             if (p.etat != Etat.mort)
             {
