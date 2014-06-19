@@ -80,6 +80,7 @@ namespace MaraudersAdventure
             Historique = new List<Position>();
             Image = Properties.Resources.archer;
             equipe = eq;
+            etat = Etat.vivant;
         }
 
         //-----------------------------------------------------------------------------

@@ -80,7 +80,7 @@ namespace MaraudersAdventure
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            maSimulation.StartGame();
+            StartGame();
         }
 
         public void UpdateMapLayout()
@@ -106,5 +106,31 @@ namespace MaraudersAdventure
 
         List<Expander> listePerso = new List<Expander>();
 
+        public void StartGame()
+        {
+            int cptTours = 0;
+
+            while (!maSimulation.etatPartie)
+            {
+                foreach (Personnage personnageEnCours in maSimulation.personnagesEnJeu)
+                {
+
+                    if (personnageEnCours.etat == Etat.mort)
+                        continue;
+
+                    maSimulation.joueurActuel = personnageEnCours;
+
+                    maSimulation.tour(maSimulation.joueurActuel);
+
+                    if (string.IsNullOrEmpty(maSimulation.PartieFinie()))
+                    {
+                        maSimulation.etatPartie = true;
+                        break;
+                    }
+                    UpdateMapLayout();
+                }
+                cptTours++;
+            }
+        }
     }
 }

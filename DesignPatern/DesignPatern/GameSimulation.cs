@@ -8,9 +8,9 @@ namespace MaraudersAdventure
 {
     class GameSimulation
     {
-        ConfigurationGame game;
-        Personnage[] personnagesEnJeu;
-        Personnage joueurActuel;
+        public ConfigurationGame game;
+        public Personnage[] personnagesEnJeu;
+        public Personnage joueurActuel;
 
         public GameSimulation(ConfigurationGame _game)
         {
@@ -36,7 +36,7 @@ namespace MaraudersAdventure
                 if (game.EquipeRouge.Joueurs.Count >= i + 1)
                 {
                     personnagesEnJeu[cpt + 1] = game.EquipeRouge.Joueurs[i];
-                    personnagesEnJeu[cpt + 1].Position = GetStartZone(i+3);
+                    personnagesEnJeu[cpt + 1].Position = GetStartZone(i+25);
                 }
                 cpt++;
             }
@@ -89,33 +89,10 @@ namespace MaraudersAdventure
             return p;
         }
 
-        bool etatPartie = false;
+        public bool etatPartie = false;
 
-        public void StartGame()
-        {
-            int cptTours = 0;
 
-            while (!etatPartie)
-            {
-                foreach (Personnage personnageEnCours in personnagesEnJeu)
-                {
-                    
-                    if (personnageEnCours.etat == Etat.mort)
-                        continue;
-                    joueurActuel = personnageEnCours;
-
-                    tour(joueurActuel);
-
-                    if (string.IsNullOrEmpty(PartieFinie())){
-                        etatPartie = true;
-                        break;
-                    }
-                }
-                cptTours++;
-            }
-        }
-
-        private void tour(Personnage p)
+        public  void tour(Personnage p)
         {
             p.SeDeplacer();
             Combatre();
@@ -124,10 +101,11 @@ namespace MaraudersAdventure
                 p.RamasserObjets(game.Plateau.GetZone(p.Position));
                 UseObjets();
             }
+            
         }
 
 
-        private string PartieFinie()
+        public string PartieFinie()
         {
             /*bool res = false;
             if (personnagesEnJeu.First((c) => c.PointsDeVie != 0) == null)
