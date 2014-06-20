@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaraudersAdventure
 {
-    class GameSimulation
+    public class GameSimulation
     {
         public ConfigurationGame game;
         public Personnage[] personnagesEnJeu;
@@ -32,13 +32,15 @@ namespace MaraudersAdventure
                 {
                     personnagesEnJeu[cpt] = game.EquipeVerte.Joueurs[i];
                     personnagesEnJeu[cpt].Position = GetStartZone(i);
+					cpt++;
                 }
                 if (game.EquipeRouge.Joueurs.Count >= i + 1)
                 {
-                    personnagesEnJeu[cpt + 1] = game.EquipeRouge.Joueurs[i];
-                    personnagesEnJeu[cpt + 1].Position = GetStartZone(i+25);
+                    personnagesEnJeu[cpt] = game.EquipeRouge.Joueurs[i];
+                    personnagesEnJeu[cpt].Position = GetStartZone(i+25);
+					cpt++;
                 }
-                cpt++;
+                
             }
             if (game.EquipeRouge.Quetes != null)
                 foreach (Quete q in game.EquipeRouge.Quetes)

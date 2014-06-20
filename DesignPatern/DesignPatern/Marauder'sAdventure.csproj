@@ -60,6 +60,9 @@
     <Compile Include="ConfigurationGame.cs" />
     <Compile Include="Equipe.cs" />
     <Compile Include="GameSimulation.cs" />
+    <Compile Include="Historique.xaml.cs">
+      <DependentUpon>Historique.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MapFinale.xaml.cs">
       <DependentUpon>MapFinale.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
     <Compile Include="Zones\Position.cs" />
     <Compile Include="Zones\MapAbstraite\ZoneAbstraite.cs" />
     <Page Include="ConfigurationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Historique.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

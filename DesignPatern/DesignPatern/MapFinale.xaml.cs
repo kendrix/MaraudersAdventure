@@ -35,11 +35,12 @@ namespace MaraudersAdventure
         ConfigurationGame conf;
         MapDesign design;
         GameSimulation maSimulation;
-
+        DateTime time;
 
         public MapFinale(ConfigurationGame _conf)
         {
             InitializeComponent();
+            time = DateTime.Now;
             conf = _conf;
             switch (conf.Plateau.mytype)
             {
@@ -82,6 +83,12 @@ namespace MaraudersAdventure
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             StartGame();
+        }
+		
+		private void Voir_Hitorique(object sender, RoutedEventArgs e)
+        {
+            Historique historique = new Historique(conf,time,maSimulation);
+            historique.ShowDialog();
         }
 
         public void UpdateMapLayout()
