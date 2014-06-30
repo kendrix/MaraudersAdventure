@@ -140,6 +140,8 @@ namespace MaraudersAdventure
                 }
                 cptTours++;
             }
+
+            UpdateMapLayout();
         }
     }
 }

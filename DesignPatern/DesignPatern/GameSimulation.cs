@@ -109,71 +109,57 @@ namespace MaraudersAdventure
 
         public string PartieFinie()
         {
-            /*bool res = false;
+            CheckQuest(game.EquipeRouge);
+            CheckQuest(game.EquipeVerte);
+
+            if (game.EquipeRouge.Quetes.Count == 0 && game.EquipeVerte.Quetes.Count == 0)
+            {
+                return string.Format("DEBUG: PAS DE QUETE ENREGISTREES");
+            }                 
             if (personnagesEnJeu.First((c) => c.PointsDeVie != 0) == null)
             {
                 return string.Format("PARTIE FINIE :tout le monde est mort");
             }
-            else
+            else if (game.EquipeRouge.Quetes.First((q) => q.Fini == false) == null)
             {
-                bool resTrouverObjetChacun = true;
-                bool resTrouverCase = true;
-                TypeQuete tq = TypeQuete.TuerJoueur;
+                return string.Format("PARTIE FINIE : l'équipe rouge à accomplie toutes ses quêtes");
+            }
+            else if (game.EquipeVerte.Quetes.First((q) => q.Fini == false) == null)
+            {
+                return string.Format("PARTIE FINIE : l'équipe verte à accomplie toutes ses quêtes");
+            }
+            else
+                return null;
+        }
 
-                foreach (Personnage p in personnagesEnJeu)
+        private void CheckQuest(Equipe e)
+        {
+            foreach (Quete q in e.Quetes)
+            {
+                if (q.Fini == true)
+                    continue;
+
+                if (q.Type == TypeQuete.TrouverCase)
                 {
-                    //TrouverObjetUnique
-                    if (p != null && p.Objectif.Type == TypeQuete.TrouverObjetUnique)
-                    {
-                        tq = p.Objectif.Type;
-                        if (p.Objectif.Fini == true)
-                            res = true;
-                    }
-                    //TrouverObjetChacun
-                    else if (p != null && p.Objectif.Type == TypeQuete.TrouverObjetChacun)
-                    {
-                        tq = p.Objectif.Type;
-                        if (p.Objectif.Fini != true)
-                            return null;
-                    }
-                    //TrouverCase
-                    else if (p != null && /*p.Objectif.Fini == false &&*//* p.Objectif.Type == TypeQuete.TrouverCase)
-                    {
-                        tq = p.Objectif.Type;
-                        if (p.Objectif.Fini != true)
-                            resTrouverCase = false;
-                        //return null;
-                    }
+                    QueteZone qz = (QueteZone)q;
+                    foreach (Personnage p in e.Joueurs)
+                        if (p.Position.X == qz.ZoneATrouver.X && p.Position.Y == qz.ZoneATrouver.Y)
+                            q.FinirQuete(p);
                 }
-                if (joueurActuel != null)
+                else if (q.Type == TypeQuete.TrouverObjetUnique)
                 {
-                    string resultat = "";
-                    if (resTrouverObjetChacun && tq == TypeQuete.TrouverObjetChacun)
-                    {
-                        resultat = string.Format("PARTIE FINIE : Tous les joueurs ont trouvé leur objet" + "\n");
-                        foreach (Personnage j in personnagesEnJeu)
-                            resultat = resultat + string.Format(j.Nom + " : " + j.GetHistorique() + "\n");
-                    }
-                    else if (resTrouverCase && tq == TypeQuete.TrouverCase)
-                    {
-                        resultat = string.Format("PARTIE FINIE : Tous les joueurs ont trouvé leur case" + "\n");
-                        foreach (Personnage j in personnagesEnJeu)
-                            resultat = resultat + string.Format(j.Nom + " : " + j.GetHistorique() + "\n");
-                    }
-                    else if (res && tq == TypeQuete.TrouverObjetUnique)
-                    {
-                        resultat = string.Format("PARTIE FINIE : le gagnant est {0}\n", joueurActuel.Nom);
-                        foreach (Personnage p in personnagesEnJeu)
-                        {
-                            resultat = resultat + string.Format(p.Nom + " : " + p.GetHistorique() + "\n");
-                        }
-                    }
-                    return resultat;
+                    QueteObjet qo = (QueteObjet)q;
+                    foreach (Personnage p in e.Joueurs)
+                        if (p.Objets.Contains(qo.ObjetATrouver))
+                            q.FinirQuete(p);
                 }
-                else
-                    return null;
-            }*/
-            return "vv";
+                /* else if (q.Type == TypeQuete.TuerJoueur)
+                 {
+                     quete qo = (QueteObjet)q;
+                     if (
+                 }*/
+
+            }
         }
 
         private void Combatre()
