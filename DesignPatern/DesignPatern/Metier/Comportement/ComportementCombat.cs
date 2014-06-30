@@ -17,6 +17,6 @@ namespace MaraudersAdventure
 {
     abstract public class ComportementCombat
     {
-        public abstract string Combattre();
+        public abstract string Combattre(Personnage p);
     }
 }

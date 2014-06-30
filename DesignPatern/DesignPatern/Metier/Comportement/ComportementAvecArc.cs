@@ -17,9 +17,12 @@ namespace MaraudersAdventure
 {
     class ComportementAvecArc : ComportementCombat
     {
+        int dégat = 4;
         //-----------------------------------------------------------------------------
-        public override string Combattre()
+        public override string Combattre(Personnage p)
         {
+            p.PointsDeVie = p.PointsDeVie - dégat;
+        
             return "A pied et un arc";
         }
     }

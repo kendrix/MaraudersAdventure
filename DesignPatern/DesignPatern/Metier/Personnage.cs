@@ -114,11 +114,14 @@ namespace MaraudersAdventure
         }
 
         //-----------------------------------------------------------------------------
-        public string Combattre()
+        public string Combattre(Personnage p)
         {
+            string res = "Je ne combat pas";
             if (ComportementCombat != null)
-                return ComportementCombat.Combattre();
-            return "Je ne combat pas"; 
+                res = ComportementCombat.Combattre(p);
+            if (p.ComportementCombat != null)
+                res = p.ComportementCombat.Combattre(this);
+            return res; 
         }
 
         //-----------------------------------------------------------------------------

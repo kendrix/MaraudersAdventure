@@ -16,9 +16,11 @@ namespace MaraudersAdventure
 {
     class ComportementAcheval : ComportementCombat
     {
+        int dégat = 8;
         //-----------------------------------------------------------------------------
-        public override string Combattre()
+        public override string Combattre(Personnage p)
         {
+            p.PointsDeVie = p.PointsDeVie - dégat;
             return "A cheval et une épée";
         }
     }

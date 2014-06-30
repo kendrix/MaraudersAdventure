@@ -97,7 +97,7 @@ namespace MaraudersAdventure
         public  void tour(Personnage p)
         {
             p.SeDeplacer(game.Plateau);
-            Combatre();
+            Combattre();
             if (p.etat != Etat.mort)
             {
                 p.RamasserObjets(game.Plateau.GetZone(p.Position));
@@ -162,9 +162,19 @@ namespace MaraudersAdventure
             }
         }
 
-        private void Combatre()
+        private void Combattre()
         {
-            //TODO: faire la fonction de combat
+            Equipe e;
+            if (joueurActuel.equipe ==  TypeEquipe.Rouge)
+                e = game.EquipeVerte;
+            else 
+                e = game.EquipeRouge;
+
+            foreach (Personnage p in e.Joueurs)
+            {
+                if (p.Position.X == joueurActuel.Position.X && p.Position.Y == joueurActuel.Position.Y)
+                    joueurActuel.Combattre(p);
+            }
         }
 
         private string UseObjets()
