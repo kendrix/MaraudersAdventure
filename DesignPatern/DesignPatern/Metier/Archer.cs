@@ -19,8 +19,8 @@ namespace MaraudersAdventure
 {
     class Archer : Personnage
     {
-        public Archer(string unNom, TypeEquipe e)
-            : base(unNom, TypePersonnage.Archer, e)
+        public Archer(EtatMajor em, string unNom, TypeEquipe e)
+            : base(em, unNom, TypePersonnage.Archer, e)
         {
             Image = Properties.Resources.archer;
             ComportementCombat = new ComportementAvecArc();

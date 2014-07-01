@@ -31,10 +31,11 @@ namespace MaraudersAdventure
      
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cbType.Items.Add(new Archer(p.Nom, p.equipe));
-            cbType.Items.Add(new Chevalier(p.Nom, p.equipe));
-            cbType.Items.Add(new Princesse(p.Nom, p.equipe));
-            cbType.Items.Add(new Fantassin(p.Nom, p.equipe));
+            EtatMajor em = new EtatMajor();
+            cbType.Items.Add(new Archer(em, p.Nom, p.equipe));
+            cbType.Items.Add(new Chevalier(em, p.Nom, p.equipe));
+            cbType.Items.Add(new Princesse(em, p.Nom, p.equipe));
+            cbType.Items.Add(new Fantassin(em, p.Nom, p.equipe));
 
             if (p.type == TypePersonnage.Archer)
                 cbType.SelectedIndex = 0;

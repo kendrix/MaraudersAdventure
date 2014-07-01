@@ -38,7 +38,8 @@ namespace MaraudersAdventure
         Rouge,
         Verte
     };
-    public abstract class Personnage  : SujetAbstrait
+
+    public abstract class Personnage  : ObservateurAbstrait
     {
         public string Nom { get; set; }
         public ComportementCombat ComportementCombat { get; set; }
@@ -51,6 +52,7 @@ namespace MaraudersAdventure
         public int Vitesse { get; set; }
         public TypeEquipe equipe;
         private Position position;
+        protected EtatMajor em;
 
         public Position Position
         {
@@ -72,7 +74,7 @@ namespace MaraudersAdventure
         public List<Position> Historique;
 
         //-----------------------------------------------------------------------------
-        protected Personnage(string sonNom, TypePersonnage tp, TypeEquipe eq)
+        protected Personnage(EtatMajor em, string sonNom, TypePersonnage tp, TypeEquipe eq)
         {
             Nom = sonNom;
             ComportementCombat = null;
@@ -82,6 +84,7 @@ namespace MaraudersAdventure
             Image = Properties.Resources.archer;
             equipe = eq;
             etat = Etat.vivant;
+            this.em = em;
         }
 
         //-----------------------------------------------------------------------------
@@ -184,6 +187,23 @@ namespace MaraudersAdventure
                 result = "N'as pas bougé";
 
             return result;
+        }
+
+
+        public override void Update(string s)
+        {
+            string EtatObservé = em.ModeFonctionnement().ToString();
+            if (EtatObservé == "Suicide")
+            {
+                etat = Etat.mort;
+                PointsDeVie = 0;
+            }
+            if (EtatObservé == "Ressuscitez")
+            {
+                etat = Etat.vivant;
+                PointsDeVie = 10;
+            }
+
         }
 
 

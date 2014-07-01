@@ -119,76 +119,13 @@ namespace MaraudersAdventure
             logs.Items.Add(s);
         }
 
-
-        /*
-        public async void StartGame()
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            /*int cptTours = 0;
-
-            while (!maSimulation.etatPartie)
-            {
-                foreach (Personnage personnageEnCours in maSimulation.personnagesEnJeu)
-                {
-
-                    if (personnageEnCours.etat == Etat.mort)
-                        continue;
-
-                    maSimulation.joueurActuel = personnageEnCours;
-
-                    maSimulation.tour(maSimulation.joueurActuel);
-
-                    if (string.IsNullOrEmpty(maSimulation.PartieFinie()))
-                    {
-                        maSimulation.etatPartie = true;
-                        break;
-                    }
-                    Thread.Sleep(2000);
-                    UpdateMapLayout();
-                }
-                cptTours++;
-            }
-
-            string urlContents = await getStringTask;
-
-            UpdateMapLayout();
-            
-
-
-            string dd = await LaunchAsyncGame();
-
+            Parametres.em.modeFonctionnement = eMode.Suicide;
+            Parametres.em.Notify("");
+            Parametres.em.ModeFonctionnement();
+            WriteLog("Suicide collectif  -- PARTIE FINIE");
         }
 
-        async Task<string> LaunchAsyncGame()
-        {
-            int cptTours = 0;
-
-            while (!maSimulation.etatPartie)
-            {
-                foreach (Personnage personnageEnCours in maSimulation.personnagesEnJeu)
-                {
-
-                    if (personnageEnCours.etat == Etat.mort)
-                        continue;
-
-                    maSimulation.joueurActuel = personnageEnCours;
-
-                    maSimulation.tour(maSimulation.joueurActuel);
-
-                    if (!string.IsNullOrEmpty(maSimulation.PartieFinie()))
-                    {
-                        maSimulation.etatPartie = true;
-                        break;
-                    }
-                    Thread.Sleep(2000);
-                    UpdateMapLayout();
-                }
-                cptTours++;
-            }
-            //string urlContents = await getStringTask;
-
-            // The return statement specifies an integer result.
-            // Any methods that are awaiting AccessTheWebAsync retrieve the length value.
-            return "end";
-        }*/
     }
 }

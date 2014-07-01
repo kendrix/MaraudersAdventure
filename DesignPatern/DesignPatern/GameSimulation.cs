@@ -13,7 +13,7 @@ namespace MaraudersAdventure
         public Personnage joueurActuel;
 
         public GameSimulation(ConfigurationGame _game, MaraudersAdventure.MapFinale.WriteMessage _handler)
-        {
+        {         
             game = _game;
             handler = _handler;
             InitGame();
@@ -98,18 +98,21 @@ namespace MaraudersAdventure
 
         public  void tour(Personnage p)
         {
-            Application.Current.Dispatcher.BeginInvoke(handler, p.Afficher());
-            Application.Current.Dispatcher.BeginInvoke(handler, p.SeDeplacer(game.Plateau));
-            //handler.DynamicInvoke(p.SeDeplacer(game.Plateau));
-            Combattre();
-            if (p.etat != Etat.mort)
+            try
             {
-                //p.RamasserObjets(game.Plateau.GetZone(p.Position));
-               Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position)));
-               // UseObjets();
-                Application.Current.Dispatcher.BeginInvoke(handler, UseObjets());
+                Application.Current.Dispatcher.BeginInvoke(handler, p.Afficher());
+                Application.Current.Dispatcher.BeginInvoke(handler, p.SeDeplacer(game.Plateau));
+                //handler.DynamicInvoke(p.SeDeplacer(game.Plateau));
+                Combattre();
+                if (p.etat != Etat.mort)
+                {
+                    //p.RamasserObjets(game.Plateau.GetZone(p.Position));
+                    Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position)));
+                    // UseObjets();
+                    Application.Current.Dispatcher.BeginInvoke(handler, UseObjets());
+                }
             }
-            
+            catch (Exception) { }
         }
 
 
@@ -140,32 +143,36 @@ namespace MaraudersAdventure
 
         private void CheckQuest(Equipe e)
         {
-            foreach (Quete q in e.Quetes)
+            try
             {
-                if (q.Fini == true)
-                    continue;
-
-                if (q.Type == TypeQuete.TrouverCase)
+                foreach (Quete q in e.Quetes)
                 {
-                    QueteZone qz = (QueteZone)q;
-                    foreach (Personnage p in e.Joueurs)
-                        if (p.Position.X == qz.ZoneATrouver.X && p.Position.Y == qz.ZoneATrouver.Y)
-                            q.FinirQuete(p);
-                }
-                else if (q.Type == TypeQuete.TrouverObjetUnique)
-                {
-                    QueteObjet qo = (QueteObjet)q;
-                    foreach (Personnage p in e.Joueurs)
-                        if (p.Objets.Contains(qo.ObjetATrouver))
-                            q.FinirQuete(p);
-                }
-                /* else if (q.Type == TypeQuete.TuerJoueur)
-                 {
-                     quete qo = (QueteObjet)q;
-                     if (
-                 }*/
+                    if (q.Fini == true)
+                        continue;
 
+                    if (q.Type == TypeQuete.TrouverCase)
+                    {
+                        QueteZone qz = (QueteZone)q;
+                        foreach (Personnage p in e.Joueurs)
+                            if (p.Position.X == qz.ZoneATrouver.X && p.Position.Y == qz.ZoneATrouver.Y)
+                                q.FinirQuete(p);
+                    }
+                    else if (q.Type == TypeQuete.TrouverObjetUnique)
+                    {
+                        QueteObjet qo = (QueteObjet)q;
+                        foreach (Personnage p in e.Joueurs)
+                            if (p.Objets.Contains(qo.ObjetATrouver))
+                                q.FinirQuete(p);
+                    }
+                    /* else if (q.Type == TypeQuete.TuerJoueur)
+                     {
+                         quete qo = (QueteObjet)q;
+                         if (
+                     }*/
+                }
             }
+            catch (Exception) { }
+            
         }
 
         private void Combattre()
@@ -175,12 +182,15 @@ namespace MaraudersAdventure
                 e = game.EquipeVerte;
             else 
                 e = game.EquipeRouge;
-
-            foreach (Personnage p in e.Joueurs)
+            try
             {
-                if (p.Position.X == joueurActuel.Position.X && p.Position.Y == joueurActuel.Position.Y)
-                    joueurActuel.Combattre(p);
+                foreach (Personnage p in e.Joueurs)
+                {
+                    if (p.Position.X == joueurActuel.Position.X && p.Position.Y == joueurActuel.Position.Y)
+                        joueurActuel.Combattre(p);
+                }
             }
+            catch (Exception) { }
         }
 
         private string UseObjets()

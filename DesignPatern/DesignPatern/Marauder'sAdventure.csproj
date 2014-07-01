@@ -90,10 +90,7 @@
     <Compile Include="Objets\Object.cs" />
     <Compile Include="Objets\TypeObjet\ObjetQuete.cs" />
     <Compile Include="Observer\EtatMajor.cs" />
-    <Compile Include="Observer\ObservateurConcret.cs" />
     <Compile Include="Observer\ObservateurAbstrait.cs" />
-    <Compile Include="Observer\Organisation.cs" />
-    <Compile Include="Observer\SujetConcret.cs" />
     <Compile Include="Observer\SujetAbstrait.cs" />
     <Compile Include="Zones\Etage\AdjacentEtage.cs" />
     <Compile Include="Zones\Etage\CaseEtage.cs" />
@@ -125,7 +122,6 @@
     <Compile Include="Metier\Archer.cs" />
     <Compile Include="Zones\Labyrinthe\Case.cs" />
     <Compile Include="Metier\Chevalier.cs" />
-    <Compile Include="Observer\eMode.cs" />
     <Compile Include="Zones\Labyrinthe\FabriqueLabyrinthe.cs" />
     <Compile Include="Zones\Standard\FabriquePlateauDeJeu.cs" />
     <Compile Include="Zones\MapAbstraite\FabriquePlateauDeJeuAbstraite.cs" />

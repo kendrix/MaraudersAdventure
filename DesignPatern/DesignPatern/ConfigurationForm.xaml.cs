@@ -36,14 +36,13 @@ namespace MaraudersAdventure
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-
             for (int i = 0; i < 10; i++)
             {
                 cbJoueurRouge.Items.Add(i + 1);
                 cbJoueurVerte.Items.Add(i + 1);
 
-                RTeam.Add(new Chevalier(redTeam[i], TypeEquipe.Rouge));
-                GTeam.Add(new Chevalier(greenTeam[i], TypeEquipe.Verte));
+                RTeam.Add(new Chevalier(Parametres.em, redTeam[i], TypeEquipe.Rouge));
+                GTeam.Add(new Chevalier(Parametres.em, greenTeam[i], TypeEquipe.Verte));
             }
 
             cbJoueurRouge.SelectedIndex = 0;
@@ -104,12 +103,19 @@ namespace MaraudersAdventure
             if (string.IsNullOrEmpty(nomEquipeVerte.Text) || string.IsNullOrEmpty(nomEquipeRouge.Text))
                 return;
             List<Personnage> liste = new List<Personnage>();
-            for(int i =0; i <cbJoueurRouge.SelectedIndex + 1;i++)
+            for (int i = 0; i < cbJoueurRouge.SelectedIndex + 1; i++)
+            {
                 liste.Add(RTeam[i]);
+                Parametres.em.Attach(RTeam[i]);
+            }
 
             List<Personnage> liste2 = new List<Personnage>();
             for (int i = 0; i < cbJoueurVerte.SelectedIndex + 1; i++)
+            {
                 liste2.Add(GTeam[i]);
+
+                Parametres.em.Attach(GTeam[i]);
+            }
 
             List<string> liste3 = new List<string>();
             foreach (string i in lbQueteRouge.Items)

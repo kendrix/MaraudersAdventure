@@ -22,6 +22,7 @@
                     </RadioButton>
                     <RadioButton Content="Tout le monde" HorizontalAlignment="Left" Margin="38,72,0,0" VerticalAlignment="Top"/>
                     <ComboBox HorizontalAlignment="Left" Margin="183,42,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Suicide collectif" HorizontalAlignment="Left" Margin="24,121,0,0" VerticalAlignment="Top" Width="123" Click="Button_Click_1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Suivi de la partie">

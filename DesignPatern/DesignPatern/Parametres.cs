@@ -11,5 +11,6 @@ namespace MaraudersAdventure
         static public int nbLigne = 16;
         static public int nbColonne = 9;
         static public int nbCases = nbColonne * nbLigne;
+        static public readonly EtatMajor em = new EtatMajor();
     }
 }

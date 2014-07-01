@@ -33,7 +33,6 @@ namespace MaraudersAdventure
         public int cpt = 0;
         public Personnage joueurActuel;
 
-
         public ConfigurationGame(string nomR, string nomV, List<Personnage> joueursR, List<Personnage> joueursV, 
             List<string> queteR, List<string> queteV, MapType map)
         {

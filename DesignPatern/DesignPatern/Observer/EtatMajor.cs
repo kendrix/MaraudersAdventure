@@ -7,11 +7,31 @@ using WpfAventure;
 
 namespace MaraudersAdventure
 {
-    class EtatMajor : ObservateurAbstrait
+    public enum eMode
     {
-        public override void Update(string message)
+        NonDefini,
+        Suicide,
+        Ressuscitez,
+        PositionRetour
+    };
+
+    public class EtatMajor : SujetAbstrait
+    {
+        // public eMode modeFonctionnement;
+        public eMode modeFonctionnement { get; set; }
+        public EtatMajor()
+            : this(null)
         {
-            throw new NotImplementedException();
+        }
+
+        public EtatMajor(EtatMajor unParent)
+        {
+            Parent = unParent;        }
+
+        public EtatMajor Parent { get; set; }
+        public eMode ModeFonctionnement()
+        {
+            return modeFonctionnement;
         }
     }
 }

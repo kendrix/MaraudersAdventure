@@ -19,17 +19,18 @@ namespace MaraudersAdventure
 {
     public class Princesse : Personnage
     {
-        public Princesse(string unNom, TypeEquipe e) : 
-            base(unNom, TypePersonnage.Princesse, e)
+        public Princesse(EtatMajor em, string unNom, TypeEquipe e) : 
+            base(em, unNom, TypePersonnage.Princesse, e)
         {
             Image = Properties.Resources.princesse; 
             ComportementEmettreUnSon = new ComportementParlerPrincesse();
             seDeplacer = new SeDeplacerApiedAvecHache();
-            Notify(string.Format("La princesse {0} à été créée", unNom));
+            //em.Notify(string.Format("La princesse {0} à été créée", unNom));
 
             PointsDeVie = 95;
             PointsDAttaque = 5;
             Vitesse = 1;
         }
+
     }
 }

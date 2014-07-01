@@ -18,8 +18,8 @@ namespace MaraudersAdventure
 {
     class Chevalier : Personnage
     {
-        public Chevalier(string unNom, TypeEquipe e) : 
-            base(unNom, TypePersonnage.Chevalier, e)
+        public Chevalier(EtatMajor em, string unNom, TypeEquipe e) : 
+            base(em, unNom, TypePersonnage.Chevalier, e)
         {
             Image = Properties.Resources.chev;
             ComportementCombat = new ComportementAcheval();
@@ -35,5 +35,7 @@ namespace MaraudersAdventure
         {
             return "Chevalier " + Nom;
         }
+
+
     }
 }
