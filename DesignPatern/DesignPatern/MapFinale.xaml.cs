@@ -1,19 +1,14 @@
 ﻿using MaraudersAdventure.Zones.Etage;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
+
+
+// Add a using directive and a reference for System.Net.Http;
+//using System.Net.Http;
 
 namespace MaraudersAdventure
 {
@@ -82,7 +77,9 @@ namespace MaraudersAdventure
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            StartGame();
+            //StartGame();
+            GameBackgroundWorker gbw = new GameBackgroundWorker(maSimulation, this);
+           
         }
 		
 		private void Voir_Hitorique(object sender, RoutedEventArgs e)
@@ -113,10 +110,10 @@ namespace MaraudersAdventure
         }
 
         List<Expander> listePerso = new List<Expander>();
-
-        public void StartGame()
+        /*
+        public async void StartGame()
         {
-            int cptTours = 0;
+            /*int cptTours = 0;
 
             while (!maSimulation.etatPartie)
             {
@@ -141,7 +138,47 @@ namespace MaraudersAdventure
                 cptTours++;
             }
 
+            string urlContents = await getStringTask;
+
             UpdateMapLayout();
+            
+
+
+            string dd = await LaunchAsyncGame();
+
         }
+
+        async Task<string> LaunchAsyncGame()
+        {
+            int cptTours = 0;
+
+            while (!maSimulation.etatPartie)
+            {
+                foreach (Personnage personnageEnCours in maSimulation.personnagesEnJeu)
+                {
+
+                    if (personnageEnCours.etat == Etat.mort)
+                        continue;
+
+                    maSimulation.joueurActuel = personnageEnCours;
+
+                    maSimulation.tour(maSimulation.joueurActuel);
+
+                    if (!string.IsNullOrEmpty(maSimulation.PartieFinie()))
+                    {
+                        maSimulation.etatPartie = true;
+                        break;
+                    }
+                    Thread.Sleep(2000);
+                    UpdateMapLayout();
+                }
+                cptTours++;
+            }
+            //string urlContents = await getStringTask;
+
+            // The return statement specifies an integer result.
+            // Any methods that are awaiting AccessTheWebAsync retrieve the length value.
+            return "end";
+        }*/
     }
 }

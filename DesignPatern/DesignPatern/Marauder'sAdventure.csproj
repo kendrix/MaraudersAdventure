@@ -59,6 +59,9 @@
     </Compile>
     <Compile Include="ConfigurationGame.cs" />
     <Compile Include="Equipe.cs" />
+    <Compile Include="GameBackgroundWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GameSimulation.cs" />
     <Compile Include="Historique.xaml.cs">
       <DependentUpon>Historique.xaml</DependentUpon>
