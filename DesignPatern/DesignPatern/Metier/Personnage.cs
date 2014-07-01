@@ -100,8 +100,19 @@ namespace MaraudersAdventure
             {
                 //Position p = new Position(1,1);
                 List<ZoneAbstraite> voisins = plateau.GetNeighbourZones(this.position);
-                Random rdm = new Random(DateTime.Now.Millisecond);
-                int i = rdm.Next(0, voisins.Count - 1);
+                Random rdm = new Random(DateTime.Now.Millisecond + this.PointsDeVie + this.position.X);
+                bool found = false;
+                int i = 0;
+
+                if (voisins.Find((c) => c.Walkable == true) == null)
+                    return "Je suis trop fatigué pour me déplacer";
+                    
+                while (!found)
+                {
+                    i = rdm.Next(0, voisins.Count - 1);
+                    if (voisins[i].Walkable)
+                        found = true;
+                }
                 //TODO: mettre une fonction avec dijkstra (Valérie)
                 return seDeplacer.SeDeplacer(this, voisins[i].point);
             }

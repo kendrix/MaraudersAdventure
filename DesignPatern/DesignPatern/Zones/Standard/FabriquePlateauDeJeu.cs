@@ -38,10 +38,36 @@ namespace MaraudersAdventure
                     lien = (Acces)CreerAcces((ZoneAbstraite)actuelle, (ZoneAbstraite)ancienne);
                     plateau.AjoutAcces((AccesAbstrait)lien);
                 }
-
                 ancienne = actuelle;
                 h++;
             }
+
+            List<ZoneAbstraite> liste = plateau.zones;
+            ZoneAbstraite za;
+            foreach (Zone z in liste)
+            {
+                if (z.point.Y != 0)
+                {
+                    za = (ZoneAbstraite)plateau.GetZone(new Position(z.point.X, z.point.Y - 1));
+                    if (za != null)
+                    {
+                        lien = (Acces)CreerAcces((ZoneAbstraite)z, za);
+                        plateau.AjoutAcces((AccesAbstrait)lien);
+                    }
+                    za = null;
+                }
+                if (z.point.Y != Parametres.nbColonne)
+                {
+                    za =(ZoneAbstraite)plateau.GetZone(new Position(z.point.X, z.point.Y + 1));
+                    if (za != null)
+                    {
+                        lien = (Acces)CreerAcces((ZoneAbstraite)z, za);
+                        plateau.AjoutAcces((AccesAbstrait)lien);
+                    }
+                    za = null;
+                }
+            }
+
             return plateau;
         }
 
