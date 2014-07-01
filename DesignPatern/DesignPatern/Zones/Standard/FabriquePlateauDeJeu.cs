@@ -42,11 +42,6 @@ namespace MaraudersAdventure
                 ancienne = actuelle;
                 h++;
             }
-            Random rdm = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < 10; i++)
-            {
-                plateau.zones[rdm.Next(0,Parametres.nbCases)].Walkable = false;
-            }
             return plateau;
         }
 
