@@ -27,6 +27,9 @@ namespace MaraudersAdventure
     /// </summary>
     public partial class MapFinale : Window
     {
+
+        public delegate void WriteMessage(string message);
+
         ConfigurationGame conf;
         MapDesign design;
         GameSimulation maSimulation;
@@ -50,7 +53,7 @@ namespace MaraudersAdventure
                     break;
             }
 
-            maSimulation = new GameSimulation(conf);
+            maSimulation = new GameSimulation(conf, WriteLog);
 
             UpdateMapLayout();
         }
@@ -110,6 +113,13 @@ namespace MaraudersAdventure
         }
 
         List<Expander> listePerso = new List<Expander>();
+
+        public void WriteLog(string s)
+        {            
+            logs.Items.Add(s);
+        }
+
+
         /*
         public async void StartGame()
         {

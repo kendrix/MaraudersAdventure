@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MaraudersAdventure
 {
@@ -57,8 +58,9 @@ namespace MaraudersAdventure
                     game.joueurActuel = personnageEnCours;
 
                     game.tour(game.joueurActuel);
-
-                    if (!string.IsNullOrEmpty(game.PartieFinie()))
+                    string res = game.PartieFinie();
+                    Application.Current.Dispatcher.BeginInvoke(game.handler, res);
+                    if (!string.IsNullOrEmpty(res))
                     {
                         game.etatPartie = true;
                         break;

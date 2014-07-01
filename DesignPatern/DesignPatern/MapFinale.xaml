@@ -26,7 +26,7 @@
             </TabItem>
             <TabItem Header="Suivi de la partie">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="708"/>
+                    <ListBox x:Name="logs" HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="708"/>
                 </Grid>
             </TabItem>
         </TabControl>

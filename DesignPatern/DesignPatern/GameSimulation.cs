@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Linq;
+using System.Windows;
 
 namespace MaraudersAdventure
 {
     public class GameSimulation
     {
+        public MaraudersAdventure.MapFinale.WriteMessage handler;
+
         public ConfigurationGame game;
         public Personnage[] personnagesEnJeu;
         public Personnage joueurActuel;
 
-        public GameSimulation(ConfigurationGame _game)
+        public GameSimulation(ConfigurationGame _game, MaraudersAdventure.MapFinale.WriteMessage _handler)
         {
             game = _game;
+            handler = _handler;
             InitGame();
         }
 
@@ -94,12 +98,16 @@ namespace MaraudersAdventure
 
         public  void tour(Personnage p)
         {
-            p.SeDeplacer(game.Plateau);
+            Application.Current.Dispatcher.BeginInvoke(handler, p.Afficher());
+            Application.Current.Dispatcher.BeginInvoke(handler, p.SeDeplacer(game.Plateau));
+            //handler.DynamicInvoke(p.SeDeplacer(game.Plateau));
             Combattre();
             if (p.etat != Etat.mort)
             {
-                p.RamasserObjets(game.Plateau.GetZone(p.Position));
-                UseObjets();
+                //p.RamasserObjets(game.Plateau.GetZone(p.Position));
+               Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position)));
+               // UseObjets();
+                Application.Current.Dispatcher.BeginInvoke(handler, UseObjets());
             }
             
         }
