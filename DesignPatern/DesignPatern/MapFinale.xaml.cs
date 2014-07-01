@@ -44,10 +44,10 @@ namespace MaraudersAdventure
             conf = _conf;
             switch (conf.Plateau.mytype)
             {
-                case MapType.etage:
+                case MapType.portoloin:
                     design = new MapDesign(Properties.Resources.inconnu, Properties.Resources.herbe, Properties.Resources.arbre, Properties.Resources.objet);
                     break;
-                case MapType.maraudeurs:
+                case MapType.labyrinthe:
                     design = new MapDesign(Properties.Resources.inconnu, Properties.Resources.herbe, Properties.Resources.arbre, Properties.Resources.objet);
                     break;
                 case MapType.standard:

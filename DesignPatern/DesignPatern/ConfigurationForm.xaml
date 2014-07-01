@@ -10,9 +10,9 @@
 
         <GroupBox Header="Type de map" HorizontalAlignment="Left" Height="43" Margin="25,19,0,0" VerticalAlignment="Top" Width="312" Grid.Row="1"/>
 
-        <RadioButton x:Name="radioStandard" Content="Standard" HorizontalAlignment="Left" Margin="47,38.837,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <RadioButton x:Name="radioMaraudeur" Content="Labyrinthe" HorizontalAlignment="Left" Margin="147,38.837,0,0" VerticalAlignment="Top" Grid.Row="1" IsChecked="True"/>
-        <RadioButton x:Name="RadioEtage" Content="Etage" HorizontalAlignment="Left" Margin="269,39,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <RadioButton x:Name="radioStandard" Content="Standard" HorizontalAlignment="Left" Margin="47,38.837,0,0" VerticalAlignment="Top" Grid.Row="1" IsChecked="True"/>
+        <RadioButton x:Name="radioMaraudeur" Content="Labyrinthe" HorizontalAlignment="Left" Margin="147,38.837,0,0" VerticalAlignment="Top" Grid.Row="1" />
+        <RadioButton x:Name="RadioEtage" Content="Portoloin" HorizontalAlignment="Left" Margin="233,39,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         <Rectangle Fill="#FFBB3939" HorizontalAlignment="Left" Height="398" Margin="10,81.837,0,0" Stroke="Black" VerticalAlignment="Top" Width="380" Grid.Row="1"/>
         <Button x:Name="btnAddQRouge" Content="+" HorizontalAlignment="Left" Margin="169,150.837,0,0" VerticalAlignment="Top" Width="26" Click="btnAddQRouge_Click" Grid.Row="1"/>
         <ListBox x:Name="lbQueteRouge" HorizontalAlignment="Left" Height="282" Margin="25,182.837,0,0" VerticalAlignment="Top" Width="170" Grid.Row="1"/>

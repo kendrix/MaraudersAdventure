@@ -53,6 +53,7 @@ namespace MaraudersAdventure
             int nbObjets = rmd.Next(5, 15);
             for (int i = 0; i < nbObjets; i++)
             {
+                //Faire attention aux zones interdites
                 game.Plateau.GetZone(GetStartZone(i)).objets.Add(
                     new Aliment(rmd.Next(1, 5), "Jus de citrouille"));
             }

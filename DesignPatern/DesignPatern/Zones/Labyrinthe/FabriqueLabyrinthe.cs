@@ -15,7 +15,7 @@ namespace MaraudersAdventure
         }
         public override PlateauDeJeu CreerPlateau()
         {
-            PlateauDeJeu plateau = new PlateauDeJeu(MapType.standard);
+            PlateauDeJeu plateau = new PlateauDeJeu(MapType.labyrinthe);
             //creer adjacent et case
             Case actuelle = null;
             Case ancienne = null;

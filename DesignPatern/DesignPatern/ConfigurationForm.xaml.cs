@@ -120,9 +120,9 @@ namespace MaraudersAdventure
 
             MapType type ;
             if (radioMaraudeur.IsChecked.Value)
-                type = MapType.maraudeurs;
+                type = MapType.labyrinthe;
             else if (RadioEtage.IsChecked.Value)
-                type = MapType.etage;
+                type = MapType.portoloin;
             else
                 type = MapType.standard;
 

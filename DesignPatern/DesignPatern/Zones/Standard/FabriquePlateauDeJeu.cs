@@ -15,7 +15,7 @@ namespace MaraudersAdventure
         }
         public override PlateauDeJeu CreerPlateau()
         {
-            PlateauDeJeu plateau = new PlateauDeJeu(MapType.maraudeurs);
+            PlateauDeJeu plateau = new PlateauDeJeu(MapType.labyrinthe);
             //creer adjacent et case
             Zone actuelle = null;
             Zone ancienne = null;
@@ -41,6 +41,11 @@ namespace MaraudersAdventure
 
                 ancienne = actuelle;
                 h++;
+            }
+            Random rdm = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < 10; i++)
+            {
+                plateau.zones[rdm.Next(0,Parametres.nbCases)].Walkable = false;
             }
             return plateau;
         }

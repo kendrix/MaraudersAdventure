@@ -10,8 +10,8 @@ namespace MaraudersAdventure
     public enum MapType
     {
         standard,
-        etage,
-        maraudeurs,
+        portoloin,
+        labyrinthe,
         none
     };
 
