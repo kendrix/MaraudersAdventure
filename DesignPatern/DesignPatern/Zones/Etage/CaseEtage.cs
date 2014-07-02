@@ -11,7 +11,8 @@ namespace MaraudersAdventure
     {
         etage1,
         etage2,
-        etage3
+        etage3,
+        none
     };
     class CaseEtage : ZoneAbstraite
     {

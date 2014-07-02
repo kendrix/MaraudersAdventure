@@ -95,6 +95,7 @@
     <Compile Include="Metier\Déplacement\DeplacementAcheval.cs" />
     <Compile Include="Metier\Déplacement\DeplacementApiedAvecHache.cs" />
     <Compile Include="Metier\Déplacement\DeplacementNormale.cs" />
+    <Compile Include="Objets\TypeObjet\Portoloin.cs" />
     <Compile Include="Parametres.cs" />
     <Compile Include="PopUpPersonnage.xaml.cs">
       <DependentUpon>PopUpPersonnage.xaml</DependentUpon>

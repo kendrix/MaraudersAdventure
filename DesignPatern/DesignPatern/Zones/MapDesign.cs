@@ -11,7 +11,7 @@ namespace MaraudersAdventure.Zones.Etage
 {
     public class MapDesign
     {
-         Bitmap inconnu = Properties.Resources.arbre;
+         Bitmap inconnu = Properties.Resources.saule_cogneur;
          Bitmap standard = Properties.Resources.sol;
          Bitmap obstacle = Properties.Resources.cailloux;
          Bitmap objet = Properties.Resources.bourse;
@@ -59,7 +59,14 @@ namespace MaraudersAdventure.Zones.Etage
                     if (quetezone)
                         bt = ToWpfBitmap(inconnu);
                     else if (z.objets != null && z.objets.Count > 0)
+                    {
                         bt = ToWpfBitmap(objet);
+
+                        foreach(Objet o in z.objets)
+                            if (o.monType == monTypeObjet.Portoloin)
+                                bt = ToWpfBitmap(inconnu);
+
+                    }
                     else if (z.Walkable)
                         bt = ToWpfBitmap(standard);
                     else

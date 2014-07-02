@@ -4,7 +4,8 @@ namespace MaraudersAdventure
     public enum monTypeObjet
     {
         Aliment,
-        ObjetDeQuete
+        ObjetDeQuete,
+        Portoloin
     }
     public abstract  class Objet
     {

@@ -23,6 +23,7 @@ namespace MaraudersAdventure
             set { canBeUse = value; }
         }
         public Acces() { }
+
         public Acces(Zone z1, Zone z2)
         {
             this.z1 = z1;

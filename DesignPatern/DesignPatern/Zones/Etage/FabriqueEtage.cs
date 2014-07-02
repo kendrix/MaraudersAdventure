@@ -32,16 +32,46 @@ namespace MaraudersAdventure
                 }
                 p = new Position(h, j);
                 actuelle = (CaseEtage)CreerZone("Zone " + i, p, i);
-
                 plateau.AjoutZone((ZoneAbstraite)actuelle);
                 if (ancienne != null)
                 {
                     lien = (AdjacentEtage)CreerAcces((ZoneAbstraite)actuelle, (ZoneAbstraite)ancienne);
                     plateau.AjoutAcces((AccesAbstrait)lien);
                 }
-
                 ancienne = actuelle;
                 h++;
+            }
+
+            List<ZoneAbstraite> liste = plateau.zones;
+            ZoneAbstraite za;
+            foreach (CaseEtage z in liste)
+            {
+                if (z.point.Y != 0)
+                {
+                    za = (ZoneAbstraite)plateau.GetZone(new Position(z.point.X, z.point.Y - 1));
+                    if (za != null)
+                    {
+                        lien = (AdjacentEtage)CreerAcces((ZoneAbstraite)z, za);
+                        plateau.AjoutAcces((AccesAbstrait)lien);
+                    }
+                    za = null;
+                }
+                if (z.point.Y != Parametres.nbColonne - 1)
+                {
+                    za = (ZoneAbstraite)plateau.GetZone(new Position(z.point.X, z.point.Y + 1));
+                    if (za != null)
+                    {
+                        lien = (AdjacentEtage)CreerAcces((ZoneAbstraite)z, za);
+                        plateau.AjoutAcces((AccesAbstrait)lien);
+                    }
+                    za = null;
+                }
+            }
+
+            foreach (CaseEtage z in plateau.zones)
+            {
+                if (z.point.Y == 3 || z.point.Y == 7 || z.point.Y == 8)
+                    z.Walkable = false;
             }
             return plateau;
         }

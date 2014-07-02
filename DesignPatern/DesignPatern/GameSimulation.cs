@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaraudersAdventure.Objets.TypeObjet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -72,6 +73,11 @@ namespace MaraudersAdventure
                 game.Plateau.GetZone(GetStartZone(i)).objets.Add(
                     new Aliment(rmd.Next(1, 5), "Jus de citrouille"));
             }*/
+            
+            if (game.Plateau.mytype == MapType.portoloin)
+            {
+                Portoloin.GeneratePortoloins(game);
+            }
         }
 
         public Quete InitQuete(Quete q)
@@ -233,6 +239,7 @@ namespace MaraudersAdventure
         private string UseObjets()
         {
             bool res = false;
+            Etage e1 = Etage.none, e2 = Etage.none;
             foreach (Objet o in joueurActuel.Objets)
             {
                 Equipe e;
@@ -241,12 +248,25 @@ namespace MaraudersAdventure
                 else
                     e = game.EquipeVerte;
 
+                if (o.monType == monTypeObjet.Portoloin)
+                {
+                    Portoloin p = (Portoloin)o;
+                    e1 = p.monEtage;
+                    e2 = p.destination;
+                }
+
                 if (true == o.Utilisation(joueurActuel, e) && monTypeObjet.ObjetDeQuete == o.monType)
                 {
                     res = true;
                 }
             }
             joueurActuel.Objets.Clear();
+            if (e1 != Etage.none && e2 != Etage.none)
+            {
+                Portoloin p = new Portoloin(e1, e2);
+                game.Plateau.GetZone(p.point).objets.Add(p);
+            }
+
             if (res)
             {
                 string r = PartieFinie();
