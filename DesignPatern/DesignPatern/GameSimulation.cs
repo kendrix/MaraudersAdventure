@@ -148,8 +148,6 @@ namespace MaraudersAdventure
                 GameHistory.Instance.SaveGame(this);
                 return string.Format("PARTIE FINIE :tout le monde est mort");
             }
-
-            //if (game.EquipeRouge.Quetes.First((q) => q.Fini == false) == null) -> Ne fonctionne pas et génére une exception
             else if (!game.EquipeRouge.quetesEnCours())
             {
                 GameHistory.Instance.SaveGame(this);

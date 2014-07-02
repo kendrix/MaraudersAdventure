@@ -69,7 +69,7 @@ namespace MaraudersAdventure
                         game.etatPartie = true;
                         break;
                     }
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1400);
                     worker.ReportProgress(1);
                 }
                 cptTours++;

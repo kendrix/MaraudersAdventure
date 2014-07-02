@@ -171,6 +171,11 @@ namespace MaraudersAdventure
         public void WriteLog(string s)
         {            
             logs.Items.Add(s);
+            if (s != null && s.Contains("PARTIE FINIE"))
+            {
+                MessageBox.Show(s);
+                this.Close();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
