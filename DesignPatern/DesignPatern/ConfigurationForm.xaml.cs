@@ -41,8 +41,8 @@ namespace MaraudersAdventure
                 cbJoueurRouge.Items.Add(i + 1);
                 cbJoueurVerte.Items.Add(i + 1);
 
-                RTeam.Add(new Chevalier(Parametres.em, redTeam[i], TypeEquipe.Rouge));
-                GTeam.Add(new Chevalier(Parametres.em, greenTeam[i], TypeEquipe.Verte));
+                RTeam.Add(new Sorcier(Parametres.em, redTeam[i], TypeEquipe.Rouge));
+                GTeam.Add(new Sorcier(Parametres.em, greenTeam[i], TypeEquipe.Verte));
             }
 
             cbJoueurRouge.SelectedIndex = 0;

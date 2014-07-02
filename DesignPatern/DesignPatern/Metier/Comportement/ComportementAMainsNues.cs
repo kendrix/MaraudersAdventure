@@ -1,7 +1,7 @@
-﻿#region ---------------- ComportementAcheval.cs ----------------------
+﻿#region ---------------- ComportementAvecArc.cs ----------------------
 /*
     Namespaces      WpfAventure.Metier.Comportements
-    Classes         ComportementAcheval
+    Classes         ComportementAvecArc
  
     Date            2013 10 10
     Modif           2013 10 10
@@ -12,11 +12,16 @@
     Email           codesource@metagenia.net
 */
 #endregion ------------------------------------------------
+
 namespace MaraudersAdventure
 {
-    class ComportementAcheval : ComportementCombat
+    class ComportementAMainsNues : ComportementCombat
     {
-        int dégat = 8;
+        int dégat = 4;
+        public ComportementAMainsNues(int degat)
+        {
+            dégat += degat;
+        }
         //-----------------------------------------------------------------------------
         public override string Combattre(Personnage p)
         {

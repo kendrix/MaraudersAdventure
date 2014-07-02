@@ -1,7 +1,7 @@
-﻿#region ---------------- ComportementApiedAvecHache.cs ----------------------
+﻿#region ---------------- ComportementAcheval.cs ----------------------
 /*
     Namespaces      WpfAventure.Metier.Comportements
-    Classes         ComportementApiedAvecHache
+    Classes         ComportementAcheval
  
     Date            2013 10 10
     Modif           2013 10 10
@@ -14,14 +14,18 @@
 #endregion ------------------------------------------------
 namespace MaraudersAdventure
 {
-    class ComportementApiedAvecHache : ComportementCombat
+    class ComportementAvecSortilegesImpardonables : ComportementCombat
     {
-        int dégat = 5;
+        int dégat = 8;
+        public ComportementAvecSortilegesImpardonables(int degat)
+        {
+            dégat += degat;
+        }
         //-----------------------------------------------------------------------------
         public override string Combattre(Personnage p)
         {
             p.PointsDeVie = p.PointsDeVie - dégat;
             return p.Nom + " perds " + dégat + " point de vie.";
-        } 
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿#region ---------------- Chevalier.cs ----------------------
+﻿#region ---------------- Princesse.cs ----------------------
 /*
     Namespaces      WpfAventure.Metier
-    Classes         Chevalier
+    Classes         Princesse
  
     Date              day
     Modif             day
@@ -14,32 +14,27 @@
 */
 #endregion --------------------------------------------------
 
+
 namespace MaraudersAdventure
 {
-    public class Chevalier : Personnage
+    public class Moldu : Personnage
     {
-        public Chevalier(EtatMajor em, string unNom, TypeEquipe e) : 
-            base(em, unNom, TypePersonnage.Chevalier, e)
+        public Moldu(EtatMajor em, string unNom, TypeEquipe e) : 
+            base(em, unNom, TypePersonnage.Princesse, e)
         {
             if (e == TypeEquipe.Rouge)
                 Image = Properties.Resources.pieds_marrons;
             else
                 Image = Properties.Resources.pieds_noirs;
 
-            ComportementCombat = new ComportementAcheval();
-            seDeplacer = new SeDeplacerAcheval();
-            ComportementEmettreUnSon = new ComportementCrier();
+            //ComportementCombat = new ComportementAMainsNues(PointsDAttaque);
+            ComportementEmettreUnSon = new ComportementParlerPrincesse();
+            seDeplacer = new SeDeplacerApiedAvecHache();
 
-            PointsDeVie = 90;
-            PointsDAttaque = 10;
+            PointsDeVie = 95;
+            PointsDAttaque = 1;
             Vitesse = 1;
         }
-
-        public override string Afficher()
-        {
-            return "Chevalier " + Nom;
-        }
-
 
     }
 }

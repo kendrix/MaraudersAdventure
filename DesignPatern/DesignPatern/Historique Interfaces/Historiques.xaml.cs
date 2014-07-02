@@ -35,7 +35,7 @@ namespace MaraudersAdventure.Historique_Interfaces
              ***/
             MaraudersAdventure.MapFinale.WriteMessage _handler = null;
 
-            Personnage p1 = new Chevalier(Parametres.em,"Test", TypeEquipe.Rouge);
+            Personnage p1 = new Sorcier(Parametres.em,"Test", TypeEquipe.Rouge);
             List<Personnage> listRouge = new List<Personnage>();
             listRouge.Add(p1);
             simulations.Add(new GameSimulation(

@@ -1,7 +1,7 @@
-﻿#region ---------------- Princesse.cs ----------------------
+﻿#region ---------------- Archer.cs ----------------------
 /*
     Namespaces      WpfAventure.Metier
-    Classes         Princesse
+    Classes         Archer
  
     Date              day
     Modif             day
@@ -17,23 +17,27 @@
 
 namespace MaraudersAdventure
 {
-    public class Princesse : Personnage
+    public class Gobelin : Personnage
     {
-        public Princesse(EtatMajor em, string unNom, TypeEquipe e) : 
-            base(em, unNom, TypePersonnage.Princesse, e)
+        public Gobelin(EtatMajor em, string unNom, TypeEquipe e)
+            : base(em, unNom, TypePersonnage.Archer, e)
         {
             if (e == TypeEquipe.Rouge)
                 Image = Properties.Resources.pieds_marrons;
             else
                 Image = Properties.Resources.pieds_noirs;
-
-            ComportementEmettreUnSon = new ComportementParlerPrincesse();
+            ComportementCombat = new ComportementAMainsNues(PointsDAttaque);
             seDeplacer = new SeDeplacerApiedAvecHache();
-            //em.Notify(string.Format("La princesse {0} à été créée", unNom));
+            ComportementEmettreUnSon = new ComportementParler();
+            
+            PointsDeVie = 101;
+            PointsDAttaque = 8;
+            Vitesse = 2;
+        }
 
-            PointsDeVie = 95;
-            PointsDAttaque = 5;
-            Vitesse = 1;
+        public override string Afficher()
+        {
+            return "Gobelin " + Nom;
         }
 
     }

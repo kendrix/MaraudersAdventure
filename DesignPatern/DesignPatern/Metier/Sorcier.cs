@@ -1,7 +1,7 @@
-﻿#region ---------------- Archer.cs ----------------------
+﻿#region ---------------- Chevalier.cs ----------------------
 /*
     Namespaces      WpfAventure.Metier
-    Classes         Archer
+    Classes         Chevalier
  
     Date              day
     Modif             day
@@ -14,31 +14,32 @@
 */
 #endregion --------------------------------------------------
 
-
 namespace MaraudersAdventure
 {
-    public class Archer : Personnage
+    public class Sorcier : Personnage
     {
-        public Archer(EtatMajor em, string unNom, TypeEquipe e)
-            : base(em, unNom, TypePersonnage.Archer, e)
+        public Sorcier(EtatMajor em, string unNom, TypeEquipe e) : 
+            base(em, unNom, TypePersonnage.Chevalier, e)
         {
             if (e == TypeEquipe.Rouge)
                 Image = Properties.Resources.pieds_marrons;
             else
                 Image = Properties.Resources.pieds_noirs;
-            ComportementCombat = new ComportementAvecArc();
-            seDeplacer = new SeDeplacerApiedAvecHache();
-            ComportementEmettreUnSon = new ComportementParler();
-            
-            PointsDeVie = 101;
-            PointsDAttaque = 8;
-            Vitesse = 2;
+
+            ComportementCombat = new ComportementAvecBaguette(PointsDAttaque);
+            seDeplacer = new SeDeplacerAcheval();
+            ComportementEmettreUnSon = new ComportementCrier();
+
+            PointsDeVie = 90;
+            PointsDAttaque = 10;
+            Vitesse = 1;
         }
 
         public override string Afficher()
         {
-            return "Archer " + Nom;
+            return "Sorcier " + Nom;
         }
+
 
     }
 }

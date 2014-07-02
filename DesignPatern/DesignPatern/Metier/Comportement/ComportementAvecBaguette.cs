@@ -1,7 +1,7 @@
-﻿#region ---------------- ComportementAvecArc.cs ----------------------
+﻿#region ---------------- ComportementApiedAvecHache.cs ----------------------
 /*
     Namespaces      WpfAventure.Metier.Comportements
-    Classes         ComportementAvecArc
+    Classes         ComportementApiedAvecHache
  
     Date            2013 10 10
     Modif           2013 10 10
@@ -12,17 +12,20 @@
     Email           codesource@metagenia.net
 */
 #endregion ------------------------------------------------
-
 namespace MaraudersAdventure
 {
-    class ComportementAvecArc : ComportementCombat
+    class ComportementAvecBaguette : ComportementCombat
     {
-        int dégat = 4;
+        int dégat = 5;
+        public ComportementAvecBaguette(int degat)
+        {
+            dégat += degat;
+        }
         //-----------------------------------------------------------------------------
         public override string Combattre(Personnage p)
         {
             p.PointsDeVie = p.PointsDeVie - dégat;
             return p.Nom + " perds " + dégat + " point de vie.";
-        }
+        } 
     }
 }

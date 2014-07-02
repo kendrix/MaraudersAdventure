@@ -101,9 +101,9 @@
       <DependentUpon>PopUpPersonnage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Quetes\Quete.cs" />
-    <Compile Include="Metier\Comportement\ComportementAcheval.cs" />
-    <Compile Include="Metier\Comportement\ComportementApiedAvecHache.cs" />
-    <Compile Include="Metier\Comportement\ComportementAvecArc.cs" />
+    <Compile Include="Metier\Comportement\ComportementAvecSortilegesImpardonables.cs" />
+    <Compile Include="Metier\Comportement\ComportementAvecBaguette.cs" />
+    <Compile Include="Metier\Comportement\ComportementAMainsNues.cs" />
     <Compile Include="Metier\Comportement\ComportementCombat.cs" />
     <Compile Include="Metier\Parler\ComportementCrier.cs" />
     <Compile Include="Metier\Parler\ComportementEmettreUnSon.cs" />
@@ -146,13 +146,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Metier\Archer.cs" />
+    <Compile Include="Metier\Gobelin.cs" />
     <Compile Include="Zones\Labyrinthe\Case.cs" />
-    <Compile Include="Metier\Chevalier.cs" />
+    <Compile Include="Metier\Sorcier.cs" />
     <Compile Include="Zones\Labyrinthe\FabriqueLabyrinthe.cs" />
     <Compile Include="Zones\Standard\FabriquePlateauDeJeu.cs" />
     <Compile Include="Zones\MapAbstraite\FabriquePlateauDeJeuAbstraite.cs" />
-    <Compile Include="Metier\Fantassin.cs" />
+    <Compile Include="Metier\Mangemort.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -168,7 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Metier\Personnage.cs" />
-    <Compile Include="Metier\Princesse.cs" />
+    <Compile Include="Metier\Moldu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
