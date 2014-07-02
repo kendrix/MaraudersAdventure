@@ -78,9 +78,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GameSimulation.cs" />
-    <Compile Include="Historique Interfaces\Historique.xaml.cs">
-      <DependentUpon>Historique.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Historique Interfaces\GameHistory.cs" />
     <Compile Include="Historique Interfaces\HistoriqueForm.xaml.cs">
       <DependentUpon>HistoriqueForm.xaml</DependentUpon>
     </Compile>
@@ -124,10 +122,6 @@
     <Page Include="ConfigurationForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Historique Interfaces\Historique.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Historique Interfaces\HistoriqueForm.xaml">
       <SubType>Designer</SubType>
