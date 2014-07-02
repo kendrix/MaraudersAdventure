@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 
@@ -108,6 +109,46 @@ namespace MaraudersAdventure
                     }
                 }
             }
+            /***
+             * Affichage des personnages
+             ***/
+            //this.personnages.ClearValue(TextBlock.TextProperty);
+
+            personnages.Document.Blocks.Clear();
+
+            String textEquipeRouge = conf.EquipeRouge.Nom + "\n";
+            String textEquipeVerte = conf.EquipeVerte.Nom + "\n";
+
+            foreach (Personnage p in mm)
+            {
+                if (p.equipe == TypeEquipe.Rouge)
+                    textEquipeRouge += p.Nom + " (" + p.PointsDeVie + "pv)";
+                else
+                    textEquipeVerte += p.Nom + " (" + p.PointsDeVie + "pv)";
+            }
+
+
+            textEquipeRouge += "\n\n";
+            textEquipeVerte += "\n\n";
+
+            #region ajout des couleurs et du style de la fenêtre personnages
+
+            TextRange styleEquipeRouge = new TextRange(personnages.Document.ContentEnd, personnages.Document.ContentEnd);
+            styleEquipeRouge.Text = textEquipeRouge;
+            styleEquipeRouge.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Red);
+            styleEquipeRouge.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+
+
+            TextRange styleEquipeVerte = new TextRange(personnages.Document.ContentEnd, personnages.Document.ContentEnd);
+            styleEquipeVerte.Text = textEquipeVerte;
+            styleEquipeVerte.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Green);
+            styleEquipeVerte.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+
+            #endregion
+
+            /***
+             * Fin affichage des personnages
+             ***/
             this.Refresh();
             UpdateLayout();
         }
