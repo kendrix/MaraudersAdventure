@@ -42,5 +42,17 @@ namespace MaraudersAdventure
             }
             joueurs = _listenom;
         }
+
+        /// <summary>
+        /// Retourne vrais si une quete est encore en cours
+        /// </summary>
+        /// <returns></returns>
+        public bool quetesEnCours()
+        {
+            foreach (Quete q in quetes)
+                if (!q.Fini)
+                    return true;
+            return false;
+        }
     }
 }

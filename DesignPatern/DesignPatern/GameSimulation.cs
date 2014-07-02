@@ -116,7 +116,7 @@ namespace MaraudersAdventure
         }
 
 
-        public string PartieFinie()
+        /*public string PartieFinie()
         {
             CheckQuest(game.EquipeRouge);
             CheckQuest(game.EquipeVerte);
@@ -134,6 +134,34 @@ namespace MaraudersAdventure
                 return string.Format("PARTIE FINIE : l'équipe rouge à accomplie toutes ses quêtes");
             }
             else if (game.EquipeVerte.Quetes.First((q) => q.Fini == false) == null)
+            {
+                return string.Format("PARTIE FINIE : l'équipe verte à accomplie toutes ses quêtes");
+            }
+            else
+                return null;
+        }*/
+
+        public string PartieFinie()
+        {
+            //TODO tester la fonction
+            CheckQuest(game.EquipeRouge);
+            CheckQuest(game.EquipeVerte);
+
+            if (game.EquipeRouge.Quetes.Count == 0 && game.EquipeVerte.Quetes.Count == 0)
+            {
+                return string.Format("DEBUG: PAS DE QUETE ENREGISTREES");
+            }
+            if (personnagesEnJeu.First((c) => c.PointsDeVie != 0) == null)
+            {
+                return string.Format("PARTIE FINIE :tout le monde est mort");
+            }
+
+            //if (game.EquipeRouge.Quetes.First((q) => q.Fini == false) == null) -> Ne fonctionne pas et génére une exception
+            else if (!game.EquipeRouge.quetesEnCours())
+            {
+                return string.Format("PARTIE FINIE : l'équipe rouge à accomplie toutes ses quêtes");
+            }
+            else if (!game.EquipeVerte.quetesEnCours())
             {
                 return string.Format("PARTIE FINIE : l'équipe verte à accomplie toutes ses quêtes");
             }
