@@ -23,7 +23,11 @@ namespace MaraudersAdventure
         public Fantassin(EtatMajor em, string unNom, TypeEquipe e)
             : base(em, unNom, TypePersonnage.Fantassin, e)
         {
-            Image = Properties.Resources.fantassin;
+            if (e == TypeEquipe.Rouge)
+                Image = Properties.Resources.pieds_marrons;
+            else
+                Image = Properties.Resources.pieds_noirs;
+
             ComportementCombat = new ComportementApiedAvecHache();
             seDeplacer = new SeDeplacerApiedAvecHache();
             ComportementEmettreUnSon = new ComportementCrier();

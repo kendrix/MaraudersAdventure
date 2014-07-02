@@ -44,13 +44,16 @@ namespace MaraudersAdventure
             switch (conf.Plateau.mytype)
             {
                 case MapType.portoloin:
-                    design = new MapDesign(Properties.Resources.inconnu, Properties.Resources.herbe, Properties.Resources.arbre, Properties.Resources.objet);
+                    design = new MapDesign(Properties.Resources.saule_cogneur, Properties.Resources.sol, 
+                        Properties.Resources.cailloux, Properties.Resources.bourse);
                     break;
                 case MapType.labyrinthe:
-                    design = new MapDesign(Properties.Resources.inconnu, Properties.Resources.herbe, Properties.Resources.arbre, Properties.Resources.objet);
+                    design = new MapDesign(Properties.Resources.saule_cogneur, Properties.Resources.sol,
+                        Properties.Resources.cailloux, Properties.Resources.bourse);
                     break;
                 case MapType.standard:
-                    design = new MapDesign(Properties.Resources.inconnu, Properties.Resources.herbe, Properties.Resources.arbre, Properties.Resources.objet);
+                    design = new MapDesign(Properties.Resources.saule_cogneur, Properties.Resources.sol,
+                        Properties.Resources.cailloux, Properties.Resources.bourse);
                     break;
             }
 

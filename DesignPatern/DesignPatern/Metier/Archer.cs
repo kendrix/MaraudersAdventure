@@ -22,7 +22,10 @@ namespace MaraudersAdventure
         public Archer(EtatMajor em, string unNom, TypeEquipe e)
             : base(em, unNom, TypePersonnage.Archer, e)
         {
-            Image = Properties.Resources.archer;
+            if (e == TypeEquipe.Rouge)
+                Image = Properties.Resources.pieds_marrons;
+            else
+                Image = Properties.Resources.pieds_noirs;
             ComportementCombat = new ComportementAvecArc();
             seDeplacer = new SeDeplacerApiedAvecHache();
             ComportementEmettreUnSon = new ComportementParler();

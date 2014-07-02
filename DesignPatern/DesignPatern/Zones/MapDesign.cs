@@ -11,11 +11,11 @@ namespace MaraudersAdventure.Zones.Etage
 {
     public class MapDesign
     {
-         Bitmap inconnu = Properties.Resources.inconnu;
-         Bitmap standard = Properties.Resources.herbe;
-         Bitmap obstacle = Properties.Resources.arbre;
-         Bitmap objet = Properties.Resources.objet;
-
+         Bitmap inconnu = Properties.Resources.arbre;
+         Bitmap standard = Properties.Resources.sol;
+         Bitmap obstacle = Properties.Resources.cailloux;
+         Bitmap objet = Properties.Resources.bourse;
+        
         public MapDesign(System.Drawing.Bitmap _inconnu, System.Drawing.Bitmap  _herbe, System.Drawing.Bitmap  _arbre, System.Drawing.Bitmap  _objet)
         {
             inconnu = _inconnu;

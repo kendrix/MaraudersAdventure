@@ -202,7 +202,27 @@
   <ItemGroup>
     <Resource Include="WorkItemList.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bourse.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cailloux.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chaussure.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pieds_marrons.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pieds_noirs.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saule_cogneur.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sol.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

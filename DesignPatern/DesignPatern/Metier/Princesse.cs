@@ -22,7 +22,11 @@ namespace MaraudersAdventure
         public Princesse(EtatMajor em, string unNom, TypeEquipe e) : 
             base(em, unNom, TypePersonnage.Princesse, e)
         {
-            Image = Properties.Resources.princesse; 
+            if (e == TypeEquipe.Rouge)
+                Image = Properties.Resources.pieds_marrons;
+            else
+                Image = Properties.Resources.pieds_noirs;
+
             ComportementEmettreUnSon = new ComportementParlerPrincesse();
             seDeplacer = new SeDeplacerApiedAvecHache();
             //em.Notify(string.Format("La princesse {0} à été créée", unNom));

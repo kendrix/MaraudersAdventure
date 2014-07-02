@@ -21,7 +21,11 @@ namespace MaraudersAdventure
         public Chevalier(EtatMajor em, string unNom, TypeEquipe e) : 
             base(em, unNom, TypePersonnage.Chevalier, e)
         {
-            Image = Properties.Resources.chev;
+            if (e == TypeEquipe.Rouge)
+                Image = Properties.Resources.pieds_marrons;
+            else
+                Image = Properties.Resources.pieds_noirs;
+
             ComportementCombat = new ComportementAcheval();
             seDeplacer = new SeDeplacerAcheval();
             ComportementEmettreUnSon = new ComportementCrier();
