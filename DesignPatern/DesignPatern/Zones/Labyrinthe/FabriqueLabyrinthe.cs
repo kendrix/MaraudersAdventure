@@ -32,16 +32,40 @@ namespace MaraudersAdventure
                 }
                 p = new Position(h, j);
                 actuelle = (Case)CreerZone("Zone " + i, p, i);
-
                 plateau.AjoutZone((ZoneAbstraite)actuelle);
                 if (ancienne != null)
                 {
                     lien = (Adjacent)CreerAcces((ZoneAbstraite)actuelle, (ZoneAbstraite)ancienne);
                     plateau.AjoutAcces((AccesAbstrait)lien);
                 }
-
                 ancienne = actuelle;
                 h++;
+            }
+
+            List<ZoneAbstraite> liste = plateau.zones;
+            ZoneAbstraite za;
+            foreach (Case z in liste)
+            {
+                if (z.point.Y != 0)
+                {
+                    za = (ZoneAbstraite)plateau.GetZone(new Position(z.point.X, z.point.Y - 1));
+                    if (za != null)
+                    {
+                        lien = (Adjacent)CreerAcces((ZoneAbstraite)z, za);
+                        plateau.AjoutAcces((AccesAbstrait)lien);
+                    }
+                    za = null;
+                }
+                if (z.point.Y != Parametres.nbColonne - 1)
+                {
+                    za = (ZoneAbstraite)plateau.GetZone(new Position(z.point.X, z.point.Y + 1));
+                    if (za != null)
+                    {
+                        lien = (Adjacent)CreerAcces((ZoneAbstraite)z, za);
+                        plateau.AjoutAcces((AccesAbstrait)lien);
+                    }
+                    za = null;
+                }
             }
             Random rdm = new Random(DateTime.Now.Millisecond);
             for (int i = 0; i < 10; i++)
