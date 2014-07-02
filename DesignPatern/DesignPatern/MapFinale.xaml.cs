@@ -105,6 +105,10 @@ namespace MaraudersAdventure
             mespersos.InsertRange(0, conf.EquipeRouge.Joueurs);
             mespersos.InsertRange(0, conf.EquipeVerte.Joueurs);
 
+            List<Quete> mesquetes = new List<Quete>();
+            mesquetes.InsertRange(0, conf.EquipeRouge.Quetes);
+            mesquetes.InsertRange(0, conf.EquipeVerte.Quetes);
+
             ChessBoard.Children.Clear();
             for (int x = 0; x < Parametres.nbColonne; ++x)
             {
@@ -114,7 +118,7 @@ namespace MaraudersAdventure
                     if (zone != null)
                     {
                         //List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
-                        ChessBoard.Children.Add(design.GetCaseImage(zone, mespersos));
+                        ChessBoard.Children.Add(design.GetCaseImage(zone, mespersos, mesquetes));
                     }
                 }
             }

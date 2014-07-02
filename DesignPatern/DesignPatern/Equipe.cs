@@ -36,9 +36,9 @@ namespace MaraudersAdventure
             foreach (string que in _quetes)
             {
                 if (que.Equals("Objet"))
-                   quetes.Add(new QueteObjet("dd", null, TypeQuete.TrouverObjetUnique));
-                else if (que.Equals("TrouverCase"))
-                   quetes.Add(new QueteZone("dd", null));
+                   quetes.Add(new QueteObjet("Trouver objet", null, TypeQuete.TrouverObjetUnique));
+                else if (que.Equals("Lieu"))
+                   quetes.Add(new QueteZone("Trouver case", null));
             }
             joueurs = _listenom;
         }

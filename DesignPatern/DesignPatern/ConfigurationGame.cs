@@ -46,14 +46,11 @@ namespace MaraudersAdventure
             }
             else if ( map == MapType.labyrinthe)
             {
-               // plateau = ;
-
                 FabriqueLabyrinthe f = new FabriqueLabyrinthe();
                 plateau = f.CreerPlateau();
             }
             else
             {
-                //plateau = ;
                 FabriqueEtage f = new FabriqueEtage();
                 plateau = f.CreerPlateau();
             }

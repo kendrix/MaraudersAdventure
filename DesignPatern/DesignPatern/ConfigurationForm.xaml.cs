@@ -50,11 +50,11 @@ namespace MaraudersAdventure
 
             cbQueteRouge.Items.Add("Objet");
             cbQueteRouge.Items.Add("Lieu"); 
-            cbQueteRouge.Items.Add("Tuer");
+            //cbQueteRouge.Items.Add("Tuer");
 
             cbQueteVerte.Items.Add("Objet");
             cbQueteVerte.Items.Add("Lieu");
-            cbQueteVerte.Items.Add("Tuer");
+            //cbQueteVerte.Items.Add("Tuer");
 
             cbQueteRouge.SelectedIndex = 0;
             cbQueteVerte.SelectedIndex = 0;
@@ -100,7 +100,8 @@ namespace MaraudersAdventure
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(nomEquipeVerte.Text) || string.IsNullOrEmpty(nomEquipeRouge.Text))
+            if (string.IsNullOrEmpty(nomEquipeVerte.Text) || string.IsNullOrEmpty(nomEquipeRouge.Text)
+                || lbQueteRouge.Items.Count == 0 || lbQueteVerte.Items.Count == 0)
                 return;
             List<Personnage> liste = new List<Personnage>();
             for (int i = 0; i < cbJoueurRouge.SelectedIndex + 1; i++)

@@ -15,6 +15,7 @@ namespace MaraudersAdventure.Zones.Etage
          Bitmap standard = Properties.Resources.sol;
          Bitmap obstacle = Properties.Resources.cailloux;
          Bitmap objet = Properties.Resources.bourse;
+         Bitmap cible = Properties.Resources.cible;
         
         public MapDesign(System.Drawing.Bitmap _inconnu, System.Drawing.Bitmap  _herbe, System.Drawing.Bitmap  _arbre, System.Drawing.Bitmap  _objet)
         {
@@ -24,13 +25,11 @@ namespace MaraudersAdventure.Zones.Etage
             objet = _objet;
         }
 
-        public MapZone GetCaseImage(ZoneAbstraite z, List<Personnage> liste)
+        public MapZone GetCaseImage(ZoneAbstraite z, List<Personnage> liste, List<Quete>quete)
         {
             if (z != null)
             {
                 MapZone map = new MapZone(z);
-                
-                bool quetezone = false;
 
                 BitmapSource bt = null;
                 
@@ -41,24 +40,24 @@ namespace MaraudersAdventure.Zones.Etage
                     {
                         bt = ToWpfBitmap(p.Image);
                         map.ToolTip += " " + p.Nom;
-                    }
-                    /*else if (p.Objectif.Type == TypeQuete.TrouverCase)
-                    {
-                        QueteZone qz = (QueteZone)p.Objectif;
-                        if (qz != null
-                            && z != null
-                            && qz.ZoneATrouver.X == z.point.X
-                            && qz.ZoneATrouver.Y == z.point.Y)
-                        {
-                            quetezone = true;
-                        }
-                    }*/
+                    }                    
                 }
                 if (bt == null)
                 {
-                    if (quetezone)
-                        bt = ToWpfBitmap(inconnu);
-                    else if (z.objets != null && z.objets.Count > 0)
+
+                    foreach (Quete q in quete)
+                    {
+                        if (q.Type == TypeQuete.TrouverCase)
+                        {
+                            QueteZone qz = (QueteZone)q;
+                            if (qz != null && z != null
+                                && qz.ZoneATrouver.X == z.point.X
+                                && qz.ZoneATrouver.Y == z.point.Y)
+                                bt = ToWpfBitmap(cible);
+                        }
+                    }
+
+                    if (bt == null && (z.objets != null && z.objets.Count > 0))
                     {
                         bt = ToWpfBitmap(objet);
 
@@ -67,9 +66,9 @@ namespace MaraudersAdventure.Zones.Etage
                                 bt = ToWpfBitmap(inconnu);
 
                     }
-                    else if (z.Walkable)
+                    else if (bt == null && z.Walkable)
                         bt = ToWpfBitmap(standard);
-                    else
+                    else if (bt == null)
                         bt = ToWpfBitmap(obstacle);
                 }
                 map.Source = bt;
