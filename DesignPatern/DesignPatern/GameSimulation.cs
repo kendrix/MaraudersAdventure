@@ -40,9 +40,9 @@ namespace MaraudersAdventure
                     personnagesEnJeu[cpt] = game.EquipeRouge.Joueurs[i];
                     personnagesEnJeu[cpt].Position = GetStartZone(i+25);
 					cpt++;
-                }
-                
+                }                
             }
+
             if (game.EquipeRouge.Quetes != null)
                 foreach (Quete q in game.EquipeRouge.Quetes)
                     InitQuete(q);

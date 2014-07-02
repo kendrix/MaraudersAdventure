@@ -94,8 +94,10 @@ namespace MaraudersAdventure
 
         public void UpdateMapLayout()
         {
-            List<Personnage> mm = conf.EquipeRouge.Joueurs;
-            mm.AddRange(conf.EquipeVerte.Joueurs);
+            List<Personnage> mespersos = new List<Personnage>();
+            mespersos.InsertRange(0, conf.EquipeRouge.Joueurs);
+            mespersos.InsertRange(0, conf.EquipeVerte.Joueurs);
+
             ChessBoard.Children.Clear();
             for (int x = 0; x < Parametres.nbColonne; ++x)
             {
@@ -105,7 +107,7 @@ namespace MaraudersAdventure
                     if (zone != null)
                     {
                         //List<ZoneAbstraite> meszones = conf.Plateau.GetNeighbourZones(zone.point);
-                        ChessBoard.Children.Add(design.GetCaseImage(zone, mm));
+                        ChessBoard.Children.Add(design.GetCaseImage(zone, mespersos));
                     }
                 }
             }
@@ -119,7 +121,7 @@ namespace MaraudersAdventure
             String textEquipeRouge = conf.EquipeRouge.Nom + "\n";
             String textEquipeVerte = conf.EquipeVerte.Nom + "\n";
 
-            foreach (Personnage p in mm)
+            foreach (Personnage p in mespersos)
             {
                 if (p.equipe == TypeEquipe.Rouge)
                     textEquipeRouge += p.Nom + " (" + p.PointsDeVie + "pv)";
