@@ -1,10 +1,20 @@
 ﻿<Window x:Class="MaraudersAdventure.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Marauder's Adventure" Height="350" Width="525">
+        Title="Marauder's Adventure" Height="350" Width="525" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Nouvelle Partie" HorizontalAlignment="Left" Margin="101,142,0,0" VerticalAlignment="Top" Width="121" Click="Button_Click"/>
-        <Button Content="Score" HorizontalAlignment="Left" Margin="101,205,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.547,-1.811" Click="Button_Click_1"/>
+        <Image HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517" RenderTransformOrigin="0.5,0.5" Source="pack://siteoforigin:,,,/Resources/carte_maraudeur.jpg" IsEnabled="True">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.071"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button Content="Nouvelle Partie" HorizontalAlignment="Left" Margin="195,143,0,0" VerticalAlignment="Top" Width="121" Click="Button_Click"/>
+        <Button Content="Score" HorizontalAlignment="Left" Margin="365,27,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.547,-1.811" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
