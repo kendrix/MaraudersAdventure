@@ -102,12 +102,6 @@ namespace MaraudersAdventure
            //btnStart.en
 
         }
-		
-		private void Voir_Hitorique(object sender, RoutedEventArgs e)
-        {
-            Historique historique = new Historique(conf,time,maSimulation);
-            historique.ShowDialog();
-        }
 
         public void UpdateMapLayout()
         {

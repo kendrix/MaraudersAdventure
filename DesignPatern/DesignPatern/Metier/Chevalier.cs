@@ -16,7 +16,7 @@
 
 namespace MaraudersAdventure
 {
-    class Chevalier : Personnage
+    public class Chevalier : Personnage
     {
         public Chevalier(EtatMajor em, string unNom, TypeEquipe e) : 
             base(em, unNom, TypePersonnage.Chevalier, e)

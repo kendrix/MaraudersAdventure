@@ -78,8 +78,14 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GameSimulation.cs" />
-    <Compile Include="Historique.xaml.cs">
+    <Compile Include="Historique Interfaces\Historique.xaml.cs">
       <DependentUpon>Historique.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Historique Interfaces\HistoriqueForm.xaml.cs">
+      <DependentUpon>HistoriqueForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Historique Interfaces\Historiques.xaml.cs">
+      <DependentUpon>Historiques.xaml</DependentUpon>
     </Compile>
     <Compile Include="MapFinale.xaml.cs">
       <DependentUpon>MapFinale.xaml</DependentUpon>
@@ -119,7 +125,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Historique.xaml">
+    <Page Include="Historique Interfaces\Historique.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Historique Interfaces\HistoriqueForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Historique Interfaces\Historiques.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

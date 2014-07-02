@@ -17,7 +17,7 @@
 
 namespace MaraudersAdventure
 {
-    class Fantassin : Personnage
+    public class Fantassin : Personnage
     {
 
         public Fantassin(EtatMajor em, string unNom, TypeEquipe e)

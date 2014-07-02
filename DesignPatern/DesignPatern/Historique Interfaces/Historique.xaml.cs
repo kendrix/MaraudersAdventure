@@ -12,13 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MaraudersAdventure
+namespace MaraudersAdventure.Historique_Interfaces
 {
     /// <summary>
     /// </summary>
     public partial class Historique : Window
     {
-        ConfigurationGame conf;
+        /*ConfigurationGame conf;
         DateTime time;
         GameSimulation maSimulation;
         public Historique(ConfigurationGame conf, DateTime time, GameSimulation maSimulation)
@@ -78,5 +78,6 @@ namespace MaraudersAdventure
                 lb.Items.Add(conf.EquipeVerte.Quetes[i].Libelle);
             }
         }
+    }*/
     }
 }

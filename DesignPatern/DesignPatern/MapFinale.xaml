@@ -33,7 +33,6 @@
         </TabControl>
         <Label Content="Personnages" HorizontalAlignment="Left" Margin="865,68,0,0" VerticalAlignment="Top" Width="125"/>
         <StackPanel x:Name="myStack" HorizontalAlignment="Left" Height="588" Margin="865,94,0,0" VerticalAlignment="Top" Width="125"/>
-        <Button Content="Historique des parties" HorizontalAlignment="Left" Margin="679,10,0,0" VerticalAlignment="Top" Width="152" Height="40" Click="Voir_Hitorique"/>
         <RichTextBox x:Name="personnages" HorizontalAlignment="Left" IsReadOnly="true" Height="574" Margin="865,108,0,0" VerticalAlignment="Top" Width="125">
             <FlowDocument>
                 <Paragraph>

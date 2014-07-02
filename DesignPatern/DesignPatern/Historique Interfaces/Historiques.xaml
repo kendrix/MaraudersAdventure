@@ -1,0 +1,29 @@
+﻿<Window x:Class="MaraudersAdventure.Historique_Interfaces.Historiques"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Historiques" Height="300" Width="544.586">
+    <Window.Resources>
+        <DataTemplate x:Key="moreInformations">
+            <StackPanel>
+                <Button Content="En savoir plus" Tag="{Binding tag}" Click="bh_Click"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ListView Name="parties" HorizontalAlignment="Left" Height="220" Margin="10,42,0,0" VerticalAlignment="Top" Width="520" SelectionChanged="parties_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom Equipe rouge" Width="120" DisplayMemberBinding="{Binding Path=rouge}"></GridViewColumn>
+                    <GridViewColumn Header="Nom Equipe verte" Width="120" DisplayMemberBinding="{Binding Path=verte}"></GridViewColumn>
+                    <GridViewColumn Header="Informations" Width="120" 
+                                    CellTemplate="{StaticResource moreInformations}">
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Hstorique des parties" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+
+
+</Window>

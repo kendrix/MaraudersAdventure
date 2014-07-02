@@ -1,21 +1,20 @@
-﻿using System;
+﻿using MaraudersAdventure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MaraudersAdventure;
 using System.Collections.Generic;
-using MaraudersAdventure;
 
 namespace Marauder_s_Adventure_Test
 {
     [TestClass]
     public class Test
     {
+        /*EtatMajor em = new MaraudersAdventure.EtatMajor();
         List<Personnage> personnagesR = new List<Personnage>();
         List<Personnage> personnagesV = new List<Personnage>();
 
         List<string> quetesR = new List<string>();
         List<string> quetesV = new List<string>();
 
-        Personnage combattantR = new Chevalier("Harry Potter", TypeEquipe.Rouge);
+        Personnage combattantR = new Chevalier( "Harry Potter", TypeEquipe.Rouge);
         Personnage combattantV = new Chevalier("Voldermort", TypeEquipe.Verte);
 
         MapType map = new MapType();
@@ -24,12 +23,12 @@ namespace Marauder_s_Adventure_Test
         {
             //Tous les personnages sont des chevaliers
             personnagesR.Add(combattantR);
-            personnagesR.Add(new Chevalier("Ginny W.", TypeEquipe.Rouge));
-            personnagesR.Add(new Chevalier("Test", TypeEquipe.Rouge));
+            personnagesR.Add(new Chevalier( "Ginny W.", TypeEquipe.Rouge));
+            personnagesR.Add(new Chevalier ("Test", TypeEquipe.Rouge));
 
             personnagesV.Add(combattantV);
-            personnagesV.Add(new Chevalier("Pierre", TypeEquipe.Verte));
-            personnagesV.Add(new Chevalier("Méchant", TypeEquipe.Verte));
+            personnagesV.Add(new Chevalier( "Pierre", TypeEquipe.Verte));
+            personnagesV.Add(new Chevalier( "Méchant", TypeEquipe.Verte));
 
             quetesR.Add("Objet");
             quetesV.Add("Objet");
@@ -56,6 +55,6 @@ namespace Marauder_s_Adventure_Test
 
             
         }
-            
+            */
     }
 }
