@@ -138,6 +138,7 @@ namespace MaraudersAdventure
             //MapGame game = new MapGame(conf);
             MapFinale game = new MapFinale(conf);
             game.ShowDialog();
+            this.Close();
         }
 
         private void lbJoueurRouge_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)

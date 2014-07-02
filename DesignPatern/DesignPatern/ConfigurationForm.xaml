@@ -1,12 +1,14 @@
 ﻿<Window x:Class="MaraudersAdventure.ConfigurationForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Configuration de la partie" Height="531.982" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid Loaded="Grid_Loaded">
+        Title="Configuration de la partie" Height="531.982" Width="800" WindowStartupLocation="CenterScreen" Foreground="{x:Null}">
+    <Grid Loaded="Grid_Loaded" Background="#FFD0B67E">
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="245*"/>
         </Grid.RowDefinitions>
+
+        <Image HorizontalAlignment="Left" Height="502" VerticalAlignment="Top" Width="792" Grid.RowSpan="2" Source="pack://siteoforigin:,,,/Resources/fond2.png" Stretch="UniformToFill"/>
 
         <GroupBox Header="Type de map" HorizontalAlignment="Left" Height="43" Margin="25,19,0,0" VerticalAlignment="Top" Width="312" Grid.Row="1"/>
 
