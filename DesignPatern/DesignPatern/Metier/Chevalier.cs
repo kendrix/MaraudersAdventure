@@ -30,7 +30,7 @@ namespace MaraudersAdventure
             seDeplacer = new SeDeplacerAcheval();
             ComportementEmettreUnSon = new ComportementCrier();
 
-            PointsDeVie = 105;
+            PointsDeVie = 90;
             PointsDAttaque = 10;
             Vitesse = 1;
         }

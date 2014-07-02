@@ -21,7 +21,7 @@ namespace MaraudersAdventure
         public override string Combattre(Personnage p)
         {
             p.PointsDeVie = p.PointsDeVie - dégat;
-            return "A cheval et une épée";
+            return p.Nom + " perds " + dégat + " point de vie.";
         }
     }
 }

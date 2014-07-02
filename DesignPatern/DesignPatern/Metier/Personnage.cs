@@ -130,16 +130,19 @@ namespace MaraudersAdventure
         //-----------------------------------------------------------------------------
         public string Combattre(Personnage p)
         {
-            string res = "Je ne combat pas";
+            string res = "";
+
             if (ComportementCombat != null)
-                res = ComportementCombat.Combattre(p);
+                res += ComportementCombat.Combattre(p);
+
             if (p.ComportementCombat != null)
-                res = p.ComportementCombat.Combattre(this);
+                res = res + "/n" + p.ComportementCombat.Combattre(this);
+
             return res; 
         }
 
         //-----------------------------------------------------------------------------
-        public string RamasserObjets(ZoneAbstraite z)
+        public string RamasserObjets(ZoneAbstraite z, List<Quete> quetes)
         {
             string res = "Il n'y a rien ici.";
             if (z != null && z.objets != null && z.objets.Count != 0)
@@ -147,24 +150,30 @@ namespace MaraudersAdventure
                 int cpt = 0;
                 foreach (Objet o in z.objets)
                 {
-                    /*if (o.monType == monTypeObjet.ObjetDeQuete)
+                    if (o.monType == monTypeObjet.ObjetDeQuete)
                     {
-                        ObjetQuete obj = (ObjetQuete)o;
-                        QueteObjet quete = (QueteObjet)Objectif;
-                        if (quete.ObjetATrouver == obj)
-                        {
-                            Objets.Add(o);
+                       ObjetQuete obj = (ObjetQuete)o;
+                       foreach(Quete q in quetes)
+                       {
+                           if (q.Type == TypeQuete.TrouverObjetUnique && q.Fini == false)
+                           {
+                                QueteObjet quete = (QueteObjet)q;
+                                if (quete.ObjetATrouver == obj)
+                                {
+                                    Objets.Add(o);
 
-                            if (cpt == 0)
-                                res = string.Format("{0} à ramassé : ", Nom) + " " + o.Nom;
-                            else
-                                res = res + ", " + o.Nom;
+                                    if (cpt == 0)
+                                        res = string.Format("{0} à ramassé : ", Nom) + " " + o.Nom;
+                                    else
+                                        res = res + ", " + o.Nom;
 
-                            z.objets = null;
-                        }
+                                    z.objets = null;
+                                }
+                            }                          
+                       }
                     }
                     else
-                    {*/
+                    {
                         Objets.Add(o);
 
                         if (cpt == 0)
@@ -175,7 +184,7 @@ namespace MaraudersAdventure
                         z.objets = null;
                     }
                     cpt++;
-                //}
+               }
 
             }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -43,24 +44,37 @@ namespace MaraudersAdventure
                 }                
             }
 
+            Quete[] qq = game.EquipeRouge.Quetes.ToArray();
+            int j = 0;
             if (game.EquipeRouge.Quetes != null)
-                foreach (Quete q in game.EquipeRouge.Quetes)
-                    InitQuete(q);
-            if (game.EquipeVerte.Quetes != null)
-                foreach (Quete q in game.EquipeVerte.Quetes)
-                    InitQuete(q);
+            {
+                foreach (Quete q in qq)
+                {
+                    game.EquipeRouge.Quetes[j] = InitQuete(q);
+                    j++;
+                }
+            }
 
-            Random rmd = new Random(DateTime.Now.Millisecond);
+            qq = game.EquipeVerte.Quetes.ToArray();
+            j = 0;
+            if (game.EquipeVerte.Quetes != null)
+                foreach (Quete q in qq)
+                {
+                    game.EquipeVerte.Quetes[j] = InitQuete(q);
+                    j++;
+                }
+
+            /*Random rmd = new Random(DateTime.Now.Millisecond);
             int nbObjets = rmd.Next(5, 15);
             for (int i = 0; i < nbObjets; i++)
             {
                 //Faire attention aux zones interdites
                 game.Plateau.GetZone(GetStartZone(i)).objets.Add(
                     new Aliment(rmd.Next(1, 5), "Jus de citrouille"));
-            }
+            }*/
         }
 
-        public void InitQuete(Quete q)
+        public Quete InitQuete(Quete q)
         {
             if (q.Type == TypeQuete.TrouverCase)
             {
@@ -69,11 +83,12 @@ namespace MaraudersAdventure
             }
             else if (q.Type == TypeQuete.TrouverObjetUnique)
             {
-                ObjetQuete o = new ObjetQuete("");
-                game.Plateau.GetZone(GetStartZone(2)).objets.Add(o);
+                ObjetQuete o = new ObjetQuete("Objet de quete");
+                game.Plateau.GetZone(GetStartZone(DateTime.Now.Millisecond)).objets.Add(o);
                 QueteObjet qo = new QueteObjet(q.Libelle, o, TypeQuete.TrouverObjetUnique);
                 q = qo;
             }
+            return q;
         }
 
         public Position GetStartZone(int i)
@@ -103,11 +118,14 @@ namespace MaraudersAdventure
                 Application.Current.Dispatcher.BeginInvoke(handler, p.Afficher());
                 Application.Current.Dispatcher.BeginInvoke(handler, p.SeDeplacer(game.Plateau));
                 //handler.DynamicInvoke(p.SeDeplacer(game.Plateau));
-                Combattre();
+                Application.Current.Dispatcher.BeginInvoke(handler, Combattre());
                 if (p.etat != Etat.mort)
                 {
                     //p.RamasserObjets(game.Plateau.GetZone(p.Position));
-                    Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position)));
+                    if( p.equipe == TypeEquipe.Rouge)
+                        Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position), game.EquipeRouge.Quetes));
+                    else
+                        Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position), game.EquipeVerte.Quetes));
                     // UseObjets();
                     Application.Current.Dispatcher.BeginInvoke(handler, UseObjets());
                 }
@@ -151,7 +169,7 @@ namespace MaraudersAdventure
             {
                 return string.Format("DEBUG: PAS DE QUETE ENREGISTREES");
             }
-            if (personnagesEnJeu.First((c) => c.PointsDeVie != 0) == null)
+            if (personnagesEnJeu.FirstOrDefault((c) => c.PointsDeVie > 0) == default(Personnage))
             {
                 return string.Format("PARTIE FINIE :tout le monde est mort");
             }
@@ -203,8 +221,9 @@ namespace MaraudersAdventure
             
         }
 
-        private void Combattre()
+        private string Combattre()
         {
+            string res = "Combat : ";
             Equipe e;
             if (joueurActuel.equipe ==  TypeEquipe.Rouge)
                 e = game.EquipeVerte;
@@ -215,10 +234,15 @@ namespace MaraudersAdventure
                 foreach (Personnage p in e.Joueurs)
                 {
                     if (p.Position.X == joueurActuel.Position.X && p.Position.Y == joueurActuel.Position.Y)
-                        joueurActuel.Combattre(p);
+                    {
+                        return joueurActuel.Combattre(p);
+                        //res = joueurActuel.Nom
+                    }
                 }
             }
-            catch (Exception) { }
+            catch (Exception) { return ""; }
+
+            return "";
         }
 
         private string UseObjets()
