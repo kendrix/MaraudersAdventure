@@ -56,7 +56,7 @@ namespace MaraudersAdventure
                     }
                     za = null;
                 }
-                if (z.point.Y != Parametres.nbColonne)
+                if (z.point.Y != Parametres.nbColonne - 1)
                 {
                     za =(ZoneAbstraite)plateau.GetZone(new Position(z.point.X, z.point.Y + 1));
                     if (za != null)

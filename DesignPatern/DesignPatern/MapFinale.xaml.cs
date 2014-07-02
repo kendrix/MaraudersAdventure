@@ -169,9 +169,17 @@ namespace MaraudersAdventure
         List<Expander> listePerso = new List<Expander>();
 
         public void WriteLog(string s)
-        {            
+        {
             if (!string.IsNullOrEmpty(s))
+            {
                 logs.Items.Add(s);
+                //logs.ScrollIntoView(logs.Items[logs.Items.Count -1]);
+                //logs.Items[logs.Items.Count - 1].Focus();
+
+                /*logs.Focus();
+                logs.SelectedIndex = logs.Items.Count - 1;
+                ((ListBoxItem)logs.SelectedItem).Focus();*/
+            }
             if (s != null && s.Contains("PARTIE FINIE"))
             {
                 logs.Items.Add(" ----------------------");

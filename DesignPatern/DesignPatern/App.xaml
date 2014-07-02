@@ -3,8 +3,5 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
-        <BitmapImage x:Key="ImageSource1" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\Users\admin\Documents\GitHub\MaraudersAdventure\DesignPatern\DesignPatern\Resources\carte_maraudeur.jpg"/>
-
     </Application.Resources>
 </Application>

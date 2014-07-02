@@ -3,16 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Marauder's Adventure" Height="350" Width="525" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517" RenderTransformOrigin="0.5,0.5" Source="{DynamicResource ImageSource1}" IsEnabled="True">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.071"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+
+        <Image HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="517" Source="Resources/carte_maraudeur.jpg"/>
+
         <Button Content="" HorizontalAlignment="Left" Margin="202,101,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click" Height="111" RenderTransformOrigin="0.5,0.5" Opacity="0.1">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -33,16 +26,6 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Image HorizontalAlignment="Left" Height="107" Margin="348,193,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-45.024"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
 
     </Grid>
 </Window>

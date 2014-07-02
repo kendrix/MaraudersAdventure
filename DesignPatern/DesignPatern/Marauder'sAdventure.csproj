@@ -250,10 +250,10 @@
     <None Include="Resources\sol.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\carte_maraudeur.bmp" />
+    <Resource Include="Resources\carte_maraudeur.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\carte_maraudeur.jpg" />
+    <Resource Include="Resources\carte_maraudeur.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -283,6 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\fond.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
