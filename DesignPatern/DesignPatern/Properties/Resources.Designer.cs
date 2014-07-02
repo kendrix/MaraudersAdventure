@@ -153,6 +153,16 @@ namespace MaraudersAdventure.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gobelin {
+            get {
+                object obj = ResourceManager.GetObject("gobelin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap herbe {
             get {
                 object obj = ResourceManager.GetObject("herbe", resourceCulture);
@@ -167,6 +177,16 @@ namespace MaraudersAdventure.Properties {
             get {
                 object obj = ResourceManager.GetObject("herbepossible", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icone {
+            get {
+                object obj = ResourceManager.GetObject("icone", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -186,6 +206,16 @@ namespace MaraudersAdventure.Properties {
         internal static System.Drawing.Bitmap magicien {
             get {
                 object obj = ResourceManager.GetObject("magicien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mangemort {
+            get {
+                object obj = ResourceManager.GetObject("mangemort", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +276,16 @@ namespace MaraudersAdventure.Properties {
         internal static System.Drawing.Bitmap sol {
             get {
                 object obj = ResourceManager.GetObject("sol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sorcier {
+            get {
+                object obj = ResourceManager.GetObject("sorcier", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
