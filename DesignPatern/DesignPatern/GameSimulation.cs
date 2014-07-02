@@ -115,19 +115,29 @@ namespace MaraudersAdventure
         {
             try
             {
-                Application.Current.Dispatcher.BeginInvoke(handler, p.Afficher());
-                Application.Current.Dispatcher.BeginInvoke(handler, p.SeDeplacer(game.Plateau));
-                //handler.DynamicInvoke(p.SeDeplacer(game.Plateau));
-                Application.Current.Dispatcher.BeginInvoke(handler, Combattre());
+                if (p.etat == Etat.mort || p.PointsDeVie <= 0)
+                    return;
+
+                Application.Current.Dispatcher.BeginInvoke(handler, p.Afficher() + ":");
+                Application.Current.Dispatcher.BeginInvoke(handler, "\t" + p.SeDeplacer(game.Plateau));
+                
+                string r = Combattre();
+                if (!string.IsNullOrEmpty(r))
+                    Application.Current.Dispatcher.BeginInvoke(handler, "\t" + r);
+
                 if (p.etat != Etat.mort)
                 {
-                    //p.RamasserObjets(game.Plateau.GetZone(p.Position));
                     if( p.equipe == TypeEquipe.Rouge)
-                        Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position), game.EquipeRouge.Quetes));
+                        Application.Current.Dispatcher.BeginInvoke(handler, "\t" + p.RamasserObjets(game.Plateau.GetZone(p.Position), game.EquipeRouge.Quetes));
                     else
-                        Application.Current.Dispatcher.BeginInvoke(handler, p.RamasserObjets(game.Plateau.GetZone(p.Position), game.EquipeVerte.Quetes));
-                    // UseObjets();
-                    Application.Current.Dispatcher.BeginInvoke(handler, UseObjets());
+                        Application.Current.Dispatcher.BeginInvoke(handler, "\t" + p.RamasserObjets(game.Plateau.GetZone(p.Position), game.EquipeVerte.Quetes));
+                    r = "";
+                    r = UseObjets();
+
+                    if (!string.IsNullOrEmpty(r))
+                        Application.Current.Dispatcher.BeginInvoke(handler, "\t" + r);
+
+                    Application.Current.Dispatcher.BeginInvoke(handler, " ----------------------");
                 }
             }
             catch (Exception) { }

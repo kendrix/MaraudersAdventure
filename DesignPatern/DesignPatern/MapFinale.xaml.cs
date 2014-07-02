@@ -170,9 +170,11 @@ namespace MaraudersAdventure
 
         public void WriteLog(string s)
         {            
-            logs.Items.Add(s);
+            if (!string.IsNullOrEmpty(s))
+                logs.Items.Add(s);
             if (s != null && s.Contains("PARTIE FINIE"))
             {
+                logs.Items.Add(" ----------------------");
                 MessageBox.Show(s);
                 this.Close();
             }
