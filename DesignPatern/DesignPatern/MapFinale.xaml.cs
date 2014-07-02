@@ -78,12 +78,26 @@ namespace MaraudersAdventure
                 //listePerso.Add(new Expander());
             }
         }
-
+        bool PartieEnCours = false;
+        GameBackgroundWorker gbw;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //StartGame();
-            GameBackgroundWorker gbw = new GameBackgroundWorker(maSimulation, this);
-           
+            if (PartieEnCours == false)
+            {
+                gbw = new GameBackgroundWorker(maSimulation, this);
+                //btnStart.Content = "Arreter";
+                btnStart.IsEnabled = false;
+                PartieEnCours = true;
+            }
+            else
+            {
+               // gbw.WorkerSupportsCancellation = true;
+               // gbw.CancelAsync();
+                gbw.CancelGame();
+            }
+           //btnStart.en
+
         }
 		
 		private void Voir_Hitorique(object sender, RoutedEventArgs e)

@@ -23,9 +23,13 @@ namespace MaraudersAdventure
             worker.WorkerReportsProgress = true;
             worker.ProgressChanged += new ProgressChangedEventHandler(worker_ReportProgress);
             worker.WorkerSupportsCancellation = true;
+            
             worker.RunWorkerAsync();
         }
-
+        public void CancelGame()
+        {
+            worker.CancelAsync();
+        }
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if ((e.Cancelled == true))

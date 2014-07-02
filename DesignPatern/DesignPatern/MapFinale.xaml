@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MapTest" Height="734" Width="1020">
     <Grid>
-        <Button Content="Lancer la partie" HorizontalAlignment="Left" VerticalAlignment="Top" Width="166" Margin="836,10,0,0" Height="40" Click="Button_Click"/>
+        <Button x:Name="btnStart" Content="Lancer la partie" HorizontalAlignment="Left" VerticalAlignment="Top" Width="166" Margin="836,10,0,0" Height="40" Click="Button_Click"/>
         <UniformGrid x:Name="ChessBoard" HorizontalAlignment="Left" Height="430" Margin="10,58,0,0" VerticalAlignment="Top" Width="839"/>
         <Rectangle x:Name="BlockPerso" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="637" Margin="854,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="148"/>
         <TabControl HorizontalAlignment="Left" Height="202" Margin="10,493,0,0" VerticalAlignment="Top" Width="839">
