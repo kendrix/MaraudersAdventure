@@ -83,24 +83,20 @@ namespace MaraudersAdventure
         }
         bool PartieEnCours = false;
         GameBackgroundWorker gbw;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //StartGame();
             if (PartieEnCours == false)
             {
                 gbw = new GameBackgroundWorker(maSimulation, this);
-                //btnStart.Content = "Arreter";
-                btnStart.IsEnabled = false;
+                btnStart.Content = "Arreter";
                 PartieEnCours = true;
             }
             else
             {
-               // gbw.WorkerSupportsCancellation = true;
-               // gbw.CancelAsync();
                 gbw.CancelGame();
+                WriteLog("PARTIE FINIE: arret demandé");
             }
-           //btnStart.en
-
         }
 
         public void UpdateMapLayout()

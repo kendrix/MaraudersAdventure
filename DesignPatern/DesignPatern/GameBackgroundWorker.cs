@@ -72,6 +72,13 @@ namespace MaraudersAdventure
                     Thread.Sleep(1400);
                     worker.ReportProgress(1);
                 }
+                if (worker.CancellationPending)
+                {
+                    // Set the e.Cancel flag so that the WorkerCompleted event
+                    // knows that the process was cancelled.
+                    e.Cancel = true;
+                    return;
+                }
                 cptTours++;
             }
 
