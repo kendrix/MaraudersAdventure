@@ -161,17 +161,14 @@ namespace MaraudersAdventure
             }
             if (personnagesEnJeu.FirstOrDefault((c) => c.PointsDeVie > 0) == default(Personnage))
             {
-                GameHistory.Instance.SaveGame(this);
                 return string.Format("PARTIE FINIE :tout le monde est mort");
             }
             else if (!game.EquipeRouge.quetesEnCours())
             {
-                GameHistory.Instance.SaveGame(this);
                 return string.Format("PARTIE FINIE : l'équipe rouge à accomplie toutes ses quêtes");
             }
             else if (!game.EquipeVerte.quetesEnCours())
             {
-                GameHistory.Instance.SaveGame(this);
                 return string.Format("PARTIE FINIE : l'équipe verte à accomplie toutes ses quêtes");
             }
             else

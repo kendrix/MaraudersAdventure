@@ -182,6 +182,7 @@ namespace MaraudersAdventure
             }
             if (s != null && s.Contains("PARTIE FINIE"))
             {
+                GameHistory.Instance.SaveGame(this.maSimulation);
                 logs.Items.Add(" ----------------------");
                 MessageBox.Show(s);
                 this.Close();

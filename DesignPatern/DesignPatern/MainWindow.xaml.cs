@@ -25,7 +25,7 @@ namespace MaraudersAdventure
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             List<ConfigurationGame> confs = new List<ConfigurationGame>();
-            Historiques historiques = new Historiques(new List<GameSimulation>());
+            Historiques historiques = new Historiques(GameHistory.Instance.historySimulations);
             historiques.ShowDialog();
         }
 
